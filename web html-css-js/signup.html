@@ -5,17 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Fyp</title>
   </head>
   <body>
-    <header>
-      <nav></nav>
-    </header>
-    <main>
-      <section id="hero"></section>
-      <section id="purpose"></section>
-      <section id="statistics"></section>
+
+      <div class='relative w-full h-screen bg-zinc-100/90'>
+        <img />
+        <div class='flex justify-center items-center h-full'>
+          
+          <form onSubmit="" class='max-w-[800px] w-full mx-auto bg-white p-8'>
+            <h2 class='font-bold py-8'>Sign up for a free account</h2>
+            <!-- <p class="bg-red-200 text-center mb-3 py-2"></p> -->
+            <div class="flex flex-col mb-4">
+              <input class="border-2 relative bg-white-100 p-2" value=""  type="text" placeholder="username" />
+            </div>
+            <div class="flex flex-col mb-4">
+              <input class="border-2 relative bg-white-100 p-2" value=""  type="text" placeholder="email address" />
+            </div>
+            <div class="flex flex-col mb-4">
+              <input class="border-2 relative bg-white-100 p-2" value="" type="password" placeholder="password" />
+            </div>
+            <div class="flex flex-col mb-4">
+              <input class="border-2 relative bg-white-100 p-2"  type="password"  placeholder="confirmpassword" />
+            </div>
+            <button class='max-w-[200px] w-full py-2 mt-4 mb-4 bg-blue-500 relative text-white'>Register</button>
+          </form>
+        </div>
     </main>
-    <footer></footer>
+  
   </body>
 </html>

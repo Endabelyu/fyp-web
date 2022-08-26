@@ -11,28 +11,64 @@
   </head>
   <body>
     <header>
-      <nav></nav>
+      <nav
+        class="flex justify-between w-full bg-white h-25 p-4 top-0 left-0 shadow-lg"
+      >
+        <h1 class="ml-10 text-[#3371F2] text-4xl font-bold">fyp</h1>
+        <ul
+          class="flex w-[450px] text-[#3371F2] text-xl ml-24 mt-2 justify-between align-baseline"
+        >
+          <li class=""><a href="index.html">Home</a></li>
+          <li class=""><a href="creators.html">Creators</a></li>
+          <li class=""><a href="creators.html">About</a></li>
+          <li class=""><a href="creators.html">Participate</a></li>
+        </ul>
+        <div class="flex justify-around w-[200px]">
+          <button
+            class="p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]"
+            onclick="gotoLogin()"
+          >
+            Login
+          </button>
+          <button
+            class="p-2 rounded-xl w-20 bg-blue-500 text-white"
+            onclick="gotoSignup()"
+          >
+            Register
+          </button>
+        </div>
+      </nav>
     </header>
     <main>
       <section class="flex mt-6" id="about">
         <div class="kolom p-10">
           <p class="deskripsi">Lets be friends!</p>
-          <br>
+          <br />
           <h2 class="text-[45px] text-[#364f6b]">About Us</h2>
-          <br>
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-    <img src="https://img.freepik.com/free-vector/man-working-computer-home_1308-102130.jpg?size=626&ext=jpg&uid=R11386564&ga=GA1.2.1870390947.1661412027">
-      <!-- untuk area creator-->
+          <br />
+          <p class="text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <img
+          src="https://img.freepik.com/free-vector/man-working-computer-home_1308-102130.jpg?size=626&ext=jpg&uid=R11386564&ga=GA1.2.1870390947.1661412027"
+        />
       </section>
-      <!-- untuk area creators -->
-           
     </main>
-    <footer><div id="contact">
-      <div class="wrapper">
-        <div class="footer-section">
-          <h3>Kelompok 7</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div></footer>
+    <footer>
+      <h3>Kelompok 7</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </footer>
   </body>
 </html>

@@ -8,6 +8,7 @@
     <link href="/dist/output.css" rel="stylesheet" />
     <link href=”./output.css” rel=”stylesheet”>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js" defer></script>
     <title>Fyp</title>
   </head>
   <body>
@@ -19,7 +20,6 @@
         <ul
           class="flex w-[450px] text-[#3371F2] text-xl ml-24 mt-2 justify-between align-baseline"
         >
-          >>>>>>> b70179d996e525b0fe088eae5dba203ca57d74c4
           <li class="">Home</li>
           <li class="">Creators</li>
           <li class="">About</li>
@@ -28,10 +28,14 @@
         <div class="flex justify-around w-[200px]">
           <button
             class="p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]"
+            onclick="gotoLogin()"
           >
             Login
           </button>
-          <button class="p-2 rounded-xl w-20 bg-blue-500 text-white">
+          <button
+            class="p-2 rounded-xl w-20 bg-blue-500 text-white"
+            onclick="gotoSignup()"
+          >
             Register
           </button>
         </div>

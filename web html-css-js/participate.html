@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Fyp</title>
     <style type="text/css">
 
@@ -12,12 +14,32 @@
   </head>
   <body>
     <header>
-      <nav></nav>
+      <nav
+      class="flex justify-between w-full bg-white h-25 p-4 top-0 left-0 shadow-lg"
+    >
+      <h1 class="ml-10 text-[#3371F2] text-4xl font-bold">fyp</h1>
+      <ul
+        class="flex w-[450px] text-[#3371F2] text-xl ml-24 mt-2 justify-between align-baseline"
+      >
+
+        <li class="">Home</li>
+        <li class="">Creators</li>
+        <li class="">About</li>
+        <li class="">Participate</li>
+      </ul>
+      <div class="flex justify-around w-[200px]">
+        <button
+          class="p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]"
+        >
+          Login
+        </button>
+        <button class="p-2 rounded-xl w-20 bg-blue-500 text-white">
+          Register
+        </button>
+      </div>
+    </nav>
     </header>
     <main>
-      <section id="hero"></section>
-      <section id="purpose"></section>
-      <section id="statistics"></section>
       <center>
         <br>
           <font size="5">

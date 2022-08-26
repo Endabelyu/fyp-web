@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js" defer></script>
 
     <title>Fyp</title>
   </head>
@@ -17,10 +18,10 @@
       <ul
         class="flex w-[450px] text-[#3371F2] text-xl ml-24 mt-2 justify-between align-baseline"
       >
-        <li class="">Home</li>
-        <li class="">Creators</li>
-        <li class="">About</li>
-        <li class="">Participate</li>
+        <li class=""><a href="index.html">Home</a></li>
+        <li class=""><a href="creators.html">Creators</a></li>
+        <li class=""><a href="creators.html">About</a></li>
+        <li class=""><a href="creators.html">Participate</a></li>
       </ul>
       <div class="flex justify-around w-[200px]">
         <button
@@ -28,12 +29,6 @@
           onclick="gotoLogin()"
         >
           Login
-        </button>
-        <button
-          class="p-2 rounded-xl w-20 bg-blue-500 text-white"
-          onclick="gotoSignup()"
-        >
-          Register
         </button>
       </div>
     </nav>

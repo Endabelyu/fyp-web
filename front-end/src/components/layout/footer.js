@@ -2,8 +2,14 @@ import React from 'react';
 import { BsGithub } from 'react-icons/bs';
 
 const footer = () => {
+  const pathname = window.location.pathname.toString();
+
   return (
-    <div className=" flex justify-between bg-[#EAEAFA] text-md p-10  ">
+    <div
+      className={` ${
+        pathname === '/login' || pathname === '/register' ? 'hidden' : 'flex'
+      } justify-between bg-[#EAEAFA] text-md p-10  `}
+    >
       <p>
         &copy; Copyright 2022 |
         <span className="text-[#3371F2] font-bold ml-1">fyp</span> Creators. All

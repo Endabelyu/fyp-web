@@ -35,7 +35,7 @@ const Home = () => {
           <div className="flex flex-col justify-center ml-5  mt-14">
             <h1 className="text-[#5566FD] text-[55px] font-light drop-shadow-4xl mb-2">
               Make developers
-              <span className="font-bold drop-shadow-md ml-3">visible</span>
+              <span className="font-bold drop-shadow-md ml-3 ">visible</span>
               <br />
               Around the world
             </h1>

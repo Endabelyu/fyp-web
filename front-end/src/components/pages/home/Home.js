@@ -12,7 +12,7 @@ const Home = () => {
   const req = () => {
     axios({
       method: 'GET',
-      url: `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=10`,
+      url: `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=8`,
     })
       .then((result) => {
         const data = result.data;
@@ -29,11 +29,11 @@ const Home = () => {
     <div>
       <main>
         <section
-          className=" flex justify-evenly w-full  bg-white mx-auto"
+          className=" flex justify-evenly w-full  bg-white mx-auto mt-10"
           id="hero"
         >
-          <div className="flex flex-col justify-center ml-5  mt-14">
-            <h1 className="text-[#5566FD] text-[55px] font-light drop-shadow-4xl mb-2">
+          <div className="flex flex-col justify-center ml-10  mt-14">
+            <h1 className="text-[#5566FD] text-[45px] font-light drop-shadow-4xl mb-2">
               Make developers
               <strong className="ml-3 md:drop-shadow-md ">visible</strong>
               <br />
@@ -60,7 +60,7 @@ const Home = () => {
         <section id="purpose" className="p-24 bg-[#CCD1FE]">
           <h1 className="text-center text-3xl font-bold ">How it works</h1>
           <ul className="flex justify-around mt-20 ">
-            <li className="w-[25rem] h-[18rem] bg-white rounded-lg p-10">
+            <li className="w-[25rem] h-[18rem] bg-white rounded-lg p-10 mr-10">
               <VscAccount className="text-3xl text-[#141104] mb-5" />
               <h2 className="text-left text-3xl text-[#575555] mb-3">
                 Register
@@ -70,7 +70,7 @@ const Home = () => {
                 around the world.
               </p>
             </li>
-            <li className="w-[25rem] h-[18rem] bg-white rounded-lg p-10">
+            <li className="w-[25rem] h-[18rem] bg-white rounded-lg p-10 mr-10">
               <BiAddToQueue className="text-3xl text-[#141104] mb-5" />
               <h2 className="text-left text-3xl text-[#575555] mb-3">Build</h2>
               <p className="text-left text-xl text-[#6f6f71]">

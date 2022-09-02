@@ -29,13 +29,13 @@ const Navbar = (props) => {
       className="
        fixed top-0 left-0 flex justify-between w-full bg-white h-25 py-3 px-8  drop-shadow-md md:p-4"
     >
-      <h1 className="md:ml-20 text-[#3371F2] text-4xl font-bold">fyp</h1>
+      <h1 className="md:ml-14 text-[#3371F2] text-4xl font-bold">fyp</h1>
       <div
         className={`${
           toggle ? 'translate-x-0' : 'translate-x-full'
-        } absolute z-20 flex flex-col w-1/2 h-[100vh] bg-white right-0 top-[4.5rem] drop-shadow-md py-5 transition duration-500   md:flex md:justify-between md:w-[90%] md:bg-none md:drop-shadow-none`}
+        } absolute z-20 flex flex-col w-1/2 h-[100vh] bg-white right-0 top-[4.5rem] drop-shadow-md py-5 align-middle  transition duration-500  md:translate-x-0  md:flex md:static md:flex-row md:right-0 md:top-0 md:h-auto md:justify-between md:w-[90%] md:bg-none md:py-0 md:drop-shadow-none`}
       >
-        <ul className=" static flex flex-col px-3 w-[450px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:ml-[22rem] md:relative ">
+        <ul className=" static flex flex-col px-3 w-[450px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:ml-[14rem] md:text-md ">
           <li className=" mb-4 md:mb-0">
             <a href="/">Home</a>
           </li>
@@ -49,7 +49,7 @@ const Navbar = (props) => {
             <a href="/participate">Participate</a>
           </li>
         </ul>
-        <div className=" flex justify-around md:w-[200px] md:mr-[50px]">
+        <div className=" flex justify-around md:w-[200px] md:mr-[20px]">
           <button
             className={`${pathname === '/login' ? 'hidden' : ''} 
           p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]`}

@@ -33,7 +33,7 @@ const Navbar = (props) => {
       <div
         className={`${
           toggle ? 'translate-x-0' : 'translate-x-full'
-        } absolute flex flex-col w-1/2 h-[100vh] bg-white right-0 top-[4.5rem] drop-shadow-md transition duration-500   md:flex md:justify-between md:w-[90%] md:bg-none md:drop-shadow-none`}
+        } absolute z-20 flex flex-col w-1/2 h-[100vh] bg-white right-0 top-[4.5rem] drop-shadow-md transition duration-500   md:flex md:justify-between md:w-[90%] md:bg-none md:drop-shadow-none`}
       >
         <ul className=" static flex flex-col   w-[450px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:ml-[22rem] md:relative ">
           <li className=" mb-4 md:mb-0">

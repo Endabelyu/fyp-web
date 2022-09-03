@@ -1,5 +1,6 @@
 // import axios from 'axios';
 import React, { useState } from 'react';
+// import { navDes } from '../pages/style';
 // import { useNavigate } from 'react-router-dom';
 // import { useMatch } from 'react-router-dom';
 const Navbar = (props) => {
@@ -11,7 +12,7 @@ const Navbar = (props) => {
   const hamburgerClicked = () => {
     setToggle(!toggle);
     if (toggle) {
-      console.log(toggle);
+      // console.log(toggle);
     }
   };
 
@@ -25,11 +26,8 @@ const Navbar = (props) => {
   // }
 
   return (
-    <nav
-      className="
-       fixed top-0 left-0 flex justify-between w-full bg-white h-25 py-3 px-8  drop-shadow-md md:p-4"
-    >
-      <h1 className="md:ml-14 text-[#3371F2] text-4xl font-bold">fyp</h1>
+    <nav className="fixed top-0 left-0 flex justify-between w-full bg-white h-25 py-3 px-8 drop-shadow-md md:p-4">
+      <h1 className=" text-[#3371F2] text-4xl font-bold md:ml-14">fyp</h1>
       <div
         className={`${
           toggle ? 'translate-x-0' : 'translate-x-full'

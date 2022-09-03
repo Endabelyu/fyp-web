@@ -10,7 +10,7 @@ const footer = () => {
         pathname === '/login' || pathname === '/register' ? 'hidden' : 'flex'
       } justify-between bg-[#EAEAFA] text-md p-10  `}
     >
-      <p>
+      <p className="w-[250px] md:w-auto">
         &copy; Copyright 2022 |
         <span className="text-[#3371F2] font-bold ml-1">fyp</span> Creators. All
         rights reserved.

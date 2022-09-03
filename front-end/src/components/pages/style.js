@@ -1,3 +1,5 @@
-const style = () => {};
+const style = () => {
+  // navbar dekstop,
+};
 
 export default style;

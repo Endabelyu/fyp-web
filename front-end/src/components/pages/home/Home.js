@@ -29,24 +29,23 @@ const Home = () => {
     <div>
       <main>
         <section
-          className=" flex justify-evenly w-full  bg-white mx-auto mt-10 md:mb-5 mb-10"
+          className=" flex justify-evenly w-full  bg-white mx-auto mt-10 lg:mt-10 md:mb-5 mb-10"
           id="hero"
         >
-          <div className="flex flex-col justify-center ml-10  mt-14">
-            <h1 className="text-[#5566FD] text-3xl md:text-[50px] font-light drop-shadow-4xl mb-2 md:leading-[50px]">
+          <div className="flex flex-col justify-center ml-10 mt-16 lg:mt-14">
+            <h1 className="text-[#5566FD] text-3xl  font-light drop-shadow-4xl mb-2 lg:text-[50px] lg:leading-[50px]">
               Make developers
               <strong className="ml-3 md:drop-shadow-md ">visible</strong>
               <br />
               Around the world
             </h1>
-            <p className="text-[#878698] text-sm md:text-md mb-4 ml-1 text-left">
-              The place for developers showcase their creative project and
-              <br />
-              show them to everyone around the world
+            <p className="text-[#878698] text-sm  mb-4 ml-1 text-left w lg:w-[400px] md:text-md">
+              The place for developers showcase their creative project and show
+              them to everyone around the world
             </p>
             <button
               onClick={() => window.open('/login', '_self')}
-              className="bg-[#3371F2] p-4 rounded-md w-32 text-sm text-white"
+              className="bg-[#3371F2] p-4 rounded-md w-28 text-sm text-white lg:w-32 "
             >
               Get Started
             </button>
@@ -54,38 +53,38 @@ const Home = () => {
           <img
             src={websiteCartoon}
             alt="Website Creator Cartoon Illustrations"
-            className="hidden md:block"
+            className="hidden md:block md:w-1/2 md:mt-10 lg:mt-0"
           />
         </section>
-        <section id="purpose" className=" p-14 md:p-24 bg-[#CCD1FE]">
+        <section id="purpose" className=" p-14  bg-[#CCD1FE] lg:p-24">
           <h1 className="text-center text-3xl font-bold ">How it works</h1>
-          <ul className=" flex flex-col mx-auto mt-12 gap-y-4 md:gap-y-0 md:flex-row   ">
-            <li className=" w-[18rem]  h-[18rem] bg-white rounded-lg p-8 md:p-10 mr-10 md:w-[25rem]">
+          <ul className=" flex flex-col mx-auto mt-12 gap-y-4 md:gap-x-10  md:gap-y-0 md:flex-row lg:gap-x-0 ">
+            <li className=" w-[18rem]  h-[18rem] bg-white rounded-lg p-8 md:p-6 md:w-[25rem] lg:p-10 lg:mr-10">
               <VscAccount className="text-3xl text-[#141104] mb-4 md:mb-5" />
-              <h2 className="text-left text-3xl text-[#575555] mb-1 md:mb-3">
+              <h2 className="text-left text-2xl  text-[#575555] mb-1 lg:text-3xl lg:mb-3">
                 Register
               </h2>
-              <p className="text-left text-xl text-[#6f6f71] ">
+              <p className="text-left text-xl  text-[#6f6f71] md:text-[17px]  lg:text-xl ">
                 Join with us, make your creative project and yourself visible
                 around the world.
               </p>
             </li>
-            <li className="w-[18rem]  h-[18rem] bg-white rounded-lg p-8 md:p-10 mr-10 md:w-[25rem]">
+            <li className="w-[18rem]  h-[18rem] bg-white rounded-lg p-8 md:p-6 md:w-[25rem] lg:p-10 lg:mr-10">
               <BiAddToQueue className="text-3xl text-[#141104] mb-4 md:mb-5" />
-              <h2 className="text-left text-3xl text-[#575555] mb-1 md:mb-3">
+              <h2 className="text-left text-2xl  text-[#575555] mb-1 lg:text-3xl lg:mb-3">
                 Build
               </h2>
-              <p className="text-left text-xl text-[#6f6f71]">
+              <p className="text-left text-xl  text-[#6f6f71] md:text-[17px]  lg:text-xl">
                 Build your customize profile and add any your creative project
                 to show the whole world.
               </p>
             </li>
-            <li className="w-[18rem]  h-[18rem] bg-white rounded-lg p-8 md:p-10  md:w-[25rem]">
+            <li className="w-[18rem]  h-[18rem] bg-white rounded-lg p-8 md:p-6 md:w-[25rem] lg:p-10 lg:mr-10">
               <GrGroup className="text-3xl text-[#141104] mb-4 md:mb-5" />
-              <h2 className="text-left text-3xl text-[#575555] mb-1 md:mb-3">
+              <h2 className="text-left text-2xl  text-[#575555] mb-1 lg:text-3xl lg:mb-3">
                 Show
               </h2>
-              <p className="text-left text-xl text-[#6f6f71]">
+              <p className="text-left text-xl  text-[#6f6f71] md:text-[17px] lg:text-xl">
                 Share your profile to anyone, and let them know you are
                 professional developers.
               </p>
@@ -94,17 +93,17 @@ const Home = () => {
         </section>
         <section className="p-10" id="projects">
           <div>
-            <h1 className=" text-xl md:text-4xl text-center mb-16">
+            <h1 className=" text-xl  text-center mb-16 md:text-4xl">
               Check out this various project
             </h1>
-            <div className="flex justify-between flex-wrap gap-x-16 w-3/4   mx-auto">
+            <div className="flex justify-between flex-wrap md:gap-x-4 lg:gap-x-16 w-3/4 mx-auto">
               {Images.map((data) => {
                 const { id, url, title, thumbnailUrl, name } = data;
 
                 return (
                   <div className=" mb-10 rounder-lg" key={id}>
                     <img
-                      className=" rounded-lg w-full md:w-[155px] mb-5 "
+                      className=" rounded-lg w-full mb-5 md:w-[200px] lg:w-[155px]"
                       src={url}
                       alt={title}
                     />

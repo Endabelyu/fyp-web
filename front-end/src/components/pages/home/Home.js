@@ -4,6 +4,7 @@ import { VscAccount } from 'react-icons/vsc';
 import { BiAddToQueue } from 'react-icons/bi';
 import { GrGroup } from 'react-icons/gr';
 import axios from 'axios';
+import CardProject from '../../cardProject';
 
 const Home = () => {
   const { websiteCartoon } = Image;
@@ -26,7 +27,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <React.Fragment>
       <main>
         <section
           className=" flex justify-evenly w-full  bg-white mx-auto mt-10 lg:mt-10 md:mb-5 mb-10"
@@ -101,28 +102,20 @@ const Home = () => {
                 const { id, url, title, thumbnailUrl, name } = data;
 
                 return (
-                  <div className=" mb-10 rounder-lg" key={id}>
-                    <img
-                      className=" rounded-lg w-full mb-5 md:w-[200px] lg:w-[155px]"
-                      src={url}
-                      alt={title}
-                    />
-                    <div className="userData flex justify-between">
-                      <img
-                        className="rounded-full w-10 h-10"
-                        src={thumbnailUrl}
-                        alt={name}
-                      />
-                      <p>{id}</p>
-                    </div>
-                  </div>
+                  <CardProject
+                    id={id}
+                    url={url}
+                    title={title}
+                    thumbnailUrl={thumbnailUrl}
+                    name={name}
+                  />
                 );
               })}
             </div>
           </div>
         </section>
       </main>
-    </div>
+    </React.Fragment>
   );
 };
 

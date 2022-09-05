@@ -7,6 +7,7 @@ import Creators from './components/pages/Creator/Creators';
 import About from './components/pages/about/About';
 import Home from './components/pages/home/Home';
 import Participate from './components/pages/Participate/Participate';
+import UserProfile from './components/pages/user-profile/userProfile';
 // import Navbar from './components/layout/Navbar';
 // import Navbar from './components/layout/Navbar';
 
@@ -23,6 +24,7 @@ function App() {
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route exact path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/userProfile" element={<UserProfile />} />
           </Routes>
         </BrowserRouter>
       </MainLayouts>

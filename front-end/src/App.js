@@ -1,5 +1,5 @@
 import Login from './components/pages/Login';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Register from './components/pages/Register';
 // import Dashboard from './components/Dashboard';
 import MainLayouts from './components/layout/main.layout';
@@ -15,18 +15,16 @@ function App() {
   return (
     <>
       <MainLayouts>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/creators" element={<Creators />} />
-            <Route exact path="/participate" element={<Participate />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-            <Route exact path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/userProfile" element={<UserProfile />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/creators" element={<Creators />} />
+          <Route exact path="/participate" element={<Participate />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route exact path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/userProfile" element={<UserProfile />} />
+        </Routes>
       </MainLayouts>
     </>
   );

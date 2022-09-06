@@ -78,17 +78,17 @@ const Navbar = (props) => {
         <span
           className={` ${
             toggle ? 'transform translate-y-[.83rem] rotate-[315deg]' : ''
-          } line1 h-[7px] w-full mt-2  rounded-sm bg-cyan-300 transition ease-in-out duration-[500ms]`}
+          } line1 h-[7px] w-full mt-2  rounded-sm bg-[#3371F2] transition ease-in-out duration-[500ms]`}
         />
         <span
           className={` ${
             toggle ? 'transform translate-x-0 rotate-[225deg] scale-0;' : ''
-          } line2  h-[7px]  mt-2  w-full rounded-sm bg-cyan-300 ease-in-out transition duration-[500ms]`}
+          } line2  h-[7px]  mt-2  w-full rounded-sm bg-[#3371F2] ease-in-out transition duration-[500ms]`}
         />
         <span
           className={` ${
             toggle ? 'transform -translate-y-[.83rem] rotate-[225deg]' : ''
-          } line3  h-[7px]  mt-2 w-full rounded-sm bg-cyan-300 transition ease-in-out duration-[500ms]`}
+          } line3  h-[7px]  mt-2 w-full rounded-sm bg-[#3371F2] transition ease-in-out duration-[500ms]`}
         />
       </div>
     </nav>

@@ -4,7 +4,7 @@ import { VscAccount } from 'react-icons/vsc';
 import { BiAddToQueue } from 'react-icons/bi';
 import { GrGroup } from 'react-icons/gr';
 import axios from 'axios';
-import CardProject from '../../cardProject';
+import CardProject from './cardProject';
 
 const Home = () => {
   const { websiteCartoon } = Image;

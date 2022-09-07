@@ -1,35 +1,15 @@
-// import axios from 'axios';
 import React, { useState } from 'react';
-// import { navDes } from '../pages/style';
-// import { useNavigate } from 'react-router-dom';
-// import { useMatch } from 'react-router-dom';
-const Navbar = (props) => {
-  // const navigate = useNavigate();
-  // const { hidden } = props;
+import Button from './Button';
+
+const NavbarNotLogin = () => {
   const pathname = window.location.pathname.toString();
   const [toggle, setToggle] = useState(false);
 
   const hamburgerClicked = () => {
     setToggle(!toggle);
-    if (toggle) {
-      // console.log(toggle);
-    }
   };
-
-  // const Logout = async() => {
-  //     try {
-  //         await axios.delete('http://localhost:5000/logout');
-  //         navigate("/");
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // }
-
   return (
-    <nav className="fixed top-0 z-10 left-0 flex justify-between w-full bg-white h-25 py-3 px-8 md:px-6 drop-shadow-md  lg:p-4">
-      <h1 className=" text-[#3371F2] text-4xl font-bold md:ml-2 lg:ml-14">
-        fyp
-      </h1>
+    <React.Fragment>
       <div
         className={`${
           toggle ? 'translate-x-0' : 'translate-x-full'
@@ -50,21 +30,20 @@ const Navbar = (props) => {
           </li>
         </ul>
         <div className=" flex justify-around md:w-[200px] lg:mr-[20px]">
-          <button
+          <Button
             className={`${pathname === '/login' ? 'hidden' : ''} 
-          p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]`}
+    p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]`}
+            name="login"
             onClick={() => window.open('/login', '_self')}
-          >
-            Login
-          </button>
-          <button
+          />
+
+          <Button
             className={` ${
               pathname === '/register' ? 'hidden' : ''
             } p-2  rounded-xl w-20 bg-blue-500 text-white`}
             onClick={() => window.open('/register', '_self')}
-          >
-            Register
-          </button>
+            name="Register"
+          />
         </div>
       </div>
       {/* hamburger menu */}
@@ -91,8 +70,8 @@ const Navbar = (props) => {
           } line3  h-[7px]  mt-2 w-full rounded-sm bg-[#3371F2] transition ease-in-out duration-[500ms]`}
         />
       </div>
-    </nav>
+    </React.Fragment>
   );
 };
 
-export default Navbar;
+export default NavbarNotLogin;

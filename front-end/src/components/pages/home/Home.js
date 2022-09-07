@@ -5,6 +5,7 @@ import { BiAddToQueue } from 'react-icons/bi';
 import { GrGroup } from 'react-icons/gr';
 import axios from 'axios';
 import CardProject from './cardProject';
+import Button from '../../layout/Button';
 
 const Home = () => {
   const { websiteCartoon } = Image;
@@ -44,12 +45,11 @@ const Home = () => {
               The place for developers showcase their creative project and show
               them to everyone around the world
             </p>
-            <button
+            <Button
               onClick={() => window.open('/login', '_self')}
               className="bg-[#3371F2] p-4 rounded-md w-28 text-sm text-white lg:w-32 "
-            >
-              Get Started
-            </button>
+              name="Get Started"
+            />
           </div>
           <img
             src={websiteCartoon}

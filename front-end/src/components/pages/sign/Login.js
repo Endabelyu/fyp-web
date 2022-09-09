@@ -15,7 +15,7 @@ const Login = () => {
         email: email,
         password: password,
       });
-      navigate('/dashboard');
+      navigate('/show_project');
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
@@ -61,7 +61,7 @@ const Login = () => {
             Login
           </button>
           <p className="flex items-center mt-4">
-            <input className="mr-2" type="checkbox" /> Remember me and you
+            <input className="mr-2" type="checkbox" /> Remember me
           </p>
           <p className="text-center mt-8">Not a member? Sign up now</p>
         </form>

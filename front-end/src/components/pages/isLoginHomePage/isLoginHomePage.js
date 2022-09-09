@@ -69,6 +69,7 @@ const IsLoginHomePage = () => {
           </div>
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {/* show project */}
+            {/* butuh disederhanakan  */}
             <div className="group relative mx-4">
               <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
                 <img

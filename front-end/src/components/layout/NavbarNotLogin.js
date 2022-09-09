@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import Button from './Button';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const NavbarNotLogin = () => {
+  const navigate = useNavigate();
   const pathname = window.location.pathname.toString();
   const [toggle, setToggle] = useState(false);
 
   const hamburgerClicked = () => {
     setToggle(!toggle);
   };
+
+  const Logout = async() => {
+    try {
+        await axios.delete('http://localhost:5000/logout');
+        navigate("/login");
+    } catch (error) {
+        console.log(error);
+    }
+}
   return (
     <React.Fragment>
       <div
@@ -15,7 +27,7 @@ const NavbarNotLogin = () => {
           toggle ? 'translate-x-0' : 'translate-x-full'
         } absolute z-20 flex flex-col w-1/2 h-[100vh] bg-white right-0 top-[4.5rem] drop-shadow-md py-5 align-middle transition duration-500 md:translate-x-0  md:flex md:static md:flex-row md:right-0 md:top-0 md:h-auto md:justify-between md:w-[90%] md:bg-none md:py-0 md:drop-shadow-none`}
       >
-        <ul className=" static flex flex-col px-3 w-[450px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:mx-8 lg:ml-[19.5rem] md:text-md ">
+        <ul className=" static flex flex-col px-3 w-[500px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:mx-8 lg:ml-[19.5rem] md:text-md ">
           <li className=" mb-4 md:mb-0">
             <a href="/">Home</a>
           </li>
@@ -28,6 +40,9 @@ const NavbarNotLogin = () => {
           <li className=" mb-4 md:mb-0">
             <a href="/participate">Participate</a>
           </li>
+          <li className=" mb-4 md:mb-0">
+            <a href="/show_project">Show Project</a>
+          </li>
         </ul>
         <div className=" flex justify-around md:w-[200px] lg:mr-[20px]">
           <Button
@@ -35,6 +50,13 @@ const NavbarNotLogin = () => {
     p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]`}
             name="login"
             onClick={() => window.open('/login', '_self')}
+          />
+
+          <Button
+            className={`${pathname === '/login' ? 'hidden' : ''} 
+    p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]`}
+            name="logout"
+            onClick={Logout}
           />
 
           <Button

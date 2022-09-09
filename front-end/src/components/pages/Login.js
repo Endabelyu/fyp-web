@@ -26,6 +26,7 @@ const Login = () => {
   return (
     <div className="relative w-full h-screen bg-zinc-100/90">
       {/* <img /> */}
+      {/* cek upload */}
       <div className="flex justify-center items-center h-full">
         <form
           onSubmit={Auth}

@@ -2,13 +2,24 @@ import React, { useState } from 'react';
 import { BiLeftArrow, BiSearch } from 'react-icons/bi';
 import Button from './Button';
 import Image from '../../assets/srcImg/srcImg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { IoHomeSharp } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
+import axios from 'axios';
+
 const NavbarisLogin = () => {
   const [toggle, setToggle] = useState(false);
   const profileClicked = () => {
     setToggle(!toggle);
+  };
+  const navigate = useNavigate();
+  const Logout = async () => {
+    try {
+      await axios.delete('http://localhost:5000/logout');
+      navigate('/login');
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <React.Fragment>
@@ -62,6 +73,7 @@ const NavbarisLogin = () => {
             <Button
               className="p-2 rounded-xl w-20 bg-blue-500 text-white"
               name="Logout"
+              onClick={Logout}
             />
           </div>
         </div>

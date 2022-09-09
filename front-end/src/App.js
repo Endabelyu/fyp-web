@@ -8,10 +8,7 @@ import About from './components/pages/about/About';
 import Home from './components/pages/home/Home';
 import Participate from './components/pages/Participate/Participate';
 import UserProfile from './components/pages/user-profile/userProfile';
-import ShowProject from './components/pages/isLoginHomePage/ShowProject';
-// import Navbar from './components/layout/Navbar';
-// import Navbar from './components/layout/Navbar';
-
+import IsLoginHomePage from './components/pages/isLoginHomePage/isLoginHomePage';
 function App() {
   return (
     <>
@@ -25,7 +22,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/userProfile" element={<UserProfile />} />
-          <Route exact path="/show_project" element={<ShowProject />} />
+          <Route exact path="/home_login" element={<IsLoginHomePage />} />
         </Routes>
       </MainLayouts>
     </>

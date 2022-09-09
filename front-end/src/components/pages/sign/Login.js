@@ -15,7 +15,7 @@ const Login = () => {
         email: email,
         password: password,
       });
-      navigate('/show_project');
+      navigate('/home_login');
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

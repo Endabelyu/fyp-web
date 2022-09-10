@@ -11,6 +11,7 @@ const UserProfile = () => {
       <main className="mt-20">
         <section className="profile w-full   h-auto mx-auto px-6 pt-10 pb-6 lg:w-[720px] ">
           <div className="flex w-full justify-between p-4 ">
+            {/* need form edit profile */}
             <img
               className="w-36 rounded-full border-4 border-slate-400"
               src={Image.People}

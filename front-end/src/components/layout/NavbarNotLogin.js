@@ -67,7 +67,7 @@ const NavbarNotLogin = () => {
         />
         <span
           className={` ${
-            toggle ? 'transform -translate-y-[.83rem] ' : ''
+            toggle ? 'transform -translate-y-[.83rem] rotate-[315deg]  ' : ''
           } line3  h-[7px]  mt-2 w-full rounded-sm bg-[#3371F2] transition ease-in-out duration-[500ms]`}
         />
       </div>

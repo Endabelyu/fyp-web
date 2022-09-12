@@ -10,7 +10,7 @@ const Creators = () => {
   return (
     <React.Fragment>
       <div className="mt-32 ">
-        <h1 class="title max-w-xl mb-10 text-3xl text-center font-bold  mx-auto">
+        <h1 class="title max-w-xl mb-3 lg:mb-10 text-3xl text-center font-bold  mx-auto">
           This is our Incredible
           <span class="creators ml-3 stroke text-white">Creators</span>
         </h1>
@@ -18,7 +18,7 @@ const Creators = () => {
           {data.map((creator) => {
             const { name, image, quote } = creator;
 
-            return <Card name={name} image={image} quotes={quote} />;
+            return <Card name={name} image={image} quote={quote} />;
           })}
         </div>
       </div>

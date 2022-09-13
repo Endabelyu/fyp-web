@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from './card';
 import CreatorsData from './CreatorsData';
-import Image from '../../../assets/srcImg/srcImg';
 
 const Creators = () => {
   const data = CreatorsData;

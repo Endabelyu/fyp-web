@@ -16,7 +16,7 @@ const NavbarNotLogin = () => {
           toggle ? 'translate-x-0' : 'translate-x-full'
         } absolute z-20 flex flex-col w-1/2 h-[100vh] bg-white right-0 top-[4.5rem] drop-shadow-md py-5 align-middle transition duration-500 md:translate-x-0  md:flex md:static md:flex-row md:right-0 md:top-0 md:h-auto md:justify-between md:w-[90%] md:bg-none md:py-0 md:drop-shadow-none`}
       >
-        <ul className=" static flex flex-col px-3 w-[500px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:mx-8 lg:ml-[19.5rem] md:text-md ">
+        <ul className=" static flex flex-col px-3 w-[500px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:mx-8 lg:ml-[17rem] md:text-md ">
           <li className=" mb-4 md:mb-0">
             <a href="/">Home</a>
           </li>
@@ -33,7 +33,7 @@ const NavbarNotLogin = () => {
         <div className=" flex justify-around md:w-[200px] lg:mr-[20px]">
           <Button
             className={`${pathname === '/login' ? 'hidden' : ''} 
-    p-2 border-2 rounded-xl w-[4.5rem] border-[#3371F2] text-[#3371F2]`}
+    p-2 border-2 rounded-xl w-20 border-[#3371F2] text-[#3371F2]`}
             name="login"
             onClick={() => window.open('/login', '_self')}
           />

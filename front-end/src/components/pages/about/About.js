@@ -1,7 +1,15 @@
 import React from 'react';
 
 const About = () => {
-  return <div>About</div>;
+  return (
+    <React.Fragment>
+      <main>
+        <div>
+          <h1>About</h1>
+        </div>
+      </main>
+    </React.Fragment>
+  );
 };
 
 export default About;

@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from './card';
 import CreatorsData from './CreatorsData';
-import Image from '../../../assets/srcImg/srcImg';
 
 const Creators = () => {
   const data = CreatorsData;
@@ -18,7 +17,7 @@ const Creators = () => {
           {data.map((creator) => {
             const { name, image, quote } = creator;
 
-            return <Card name={name} image={image} quotes={quote} />;
+            return <Card name={name} image={image} quote={quote} />;
           })}
         </div>
       </div>

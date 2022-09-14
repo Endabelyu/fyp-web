@@ -25,22 +25,22 @@ const About = () => {
           <h1 className="text-2xl text-center font-bold">
             Overview Fyp website
           </h1>
-          <ul className="flex justify-evenly mt-10 text-2xl  text-slate-600">
-            <li className="bg-white rounded-lg text-center px-20 py-10 drop-shadow-md">
-              <p className="  font-bold">131</p>
+          <ul className="flex flex-col gap-y-4 justify-evenly mt-10 text-2xl  text-slate-600 md:flex-row md:gap-x-4 lg:gap-x-0 md:gap-y-0 ">
+            <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">
+              <p className="font-bold">131</p>
               <p>Developers</p>
             </li>
-            <li className="bg-white rounded-lg text-center px-20 py-10 drop-shadow-md">
-              <p className="  font-bold">260</p>
+            <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">
+              <p className="font-bold">260</p>
               <p>projects</p>
             </li>
-            <li className="bg-white rounded-lg text-center px-20 py-10 drop-shadow-md">
+            <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">
               <p className="  font-bold">2022</p>
               <p>Founded</p>
             </li>
           </ul>
 
-          <div className="w-3/4 mx-auto mt-14 mb-8 bg-white rounded-lg p-10 ">
+          <div className=" max-w-full lg:w-3/4 mx-auto mt-14 mb-8 bg-white rounded-lg p-10 ">
             <span className="flex gap-x-4 text-3xl mb-10">
               <BsGithub />
               <h2 className="font-bold">Open Source</h2>

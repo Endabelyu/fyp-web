@@ -6,7 +6,19 @@ const About = () => {
   return (
     <React.Fragment>
       <main className="mt-20">
-        <section className=" about w-full mx-auto px-6 pt-10 pb-6 ">
+        <div className="w-full bg-[#CCD1FE]" >
+          <div className='w-full text-center'>
+            <div className='w-full py-20'>
+              <div className='text-6xl text-white'>
+                <div className='p-5'>This  is our </div>
+                <div className='p-5'>Incredible Creators</div>
+              </div>
+              <div className='text-2xl text-blue-500 mt-8'>Fyp is website portal portofolio  and portofolio builder for all developer <br /> around the world</div>
+            </div>
+            <button className={`py-5 px-8 rounded-xl bg-blue-500 text-white font-normal mb-72`}>Get Start</button>
+          </div>
+        </div>
+        {/* <section className=" about w-full mx-auto px-6 pt-10 pb-6 ">
           <h1 className=" text-center font-bold text-3xl tracking-wider mb-5">
             About FYP
           </h1>
@@ -20,10 +32,10 @@ const About = () => {
             can make developers easier to make portfolios or share their
             creative projects for other developers or their clients.
           </p>
-        </section>
-        <section className="overview w-full mx-auto px-6 pt-10 pb-6 bg-[#CCD1FE] mt-6">
-          <h1 className="text-2xl text-center font-bold">
-            Overview Fyp website
+        </section> */}
+        <section className="overview w-full mx-auto px-6 pt-10 pb-6 bg-white mt-6">
+          <h1 className="text-4xl text-center font-bold my-32">
+            STATIC FYP WEB PAGE
           </h1>
           <ul className="flex flex-col gap-y-4 justify-evenly mt-10 text-2xl  text-slate-600 md:flex-row md:gap-x-4 lg:gap-x-0 md:gap-y-0 ">
             <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">
@@ -40,6 +52,21 @@ const About = () => {
             </li>
           </ul>
 
+          <div className='w-full mt-72'>
+            <div class="flex flex-row text-center my-4 mx-20">
+              <div class="basis-1/3">
+                <button className='btn bg-blue-400 hover:bg-blue-300 px-8 py-2 text-white rounded-full'>creator</button>
+              </div>
+              <div class="basis-1/3">
+                <button className='btn bg-blue-400 hover:bg-blue-300 px-8 py-2 text-white rounded-full'>About</button>
+              </div>
+              <div class="basis-1/3">
+                <button className='btn bg-blue-400 hover:bg-blue-300 px-8 py-2 text-white rounded-full'>Participate</button>
+              </div>
+            </div>
+            <hr />
+          </div>
+          
           <div className=" max-w-full lg:w-3/4 mx-auto mt-14 mb-8 bg-white rounded-lg p-10 ">
             <span className="flex gap-x-4 text-3xl mb-10">
               <BsGithub />

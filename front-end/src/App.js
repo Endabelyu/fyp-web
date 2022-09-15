@@ -9,12 +9,15 @@ import Home from './components/pages/home/Home';
 import Participate from './components/pages/Participate/Participate';
 import UserProfile from './components/pages/user-profile/userProfile';
 import IsLoginHomePage from './components/pages/isLoginHomePage/isLoginHomePage';
+import Contact from './components/pages/Participate/Contact';
+
 function App() {
   return (
     <>
       <MainLayouts>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/creators" element={<Creators />} />
           <Route exact path="/participate" element={<Participate />} />

@@ -15,6 +15,7 @@ const UserProfile = () => {
   return (
     <React.Fragment>
       <main className="mt-20 relative ">
+        {/* conditional */}
         {modal ? <ModalEditProfile onClick={editClicked} /> : ''}
 
         <div

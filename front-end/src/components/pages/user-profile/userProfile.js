@@ -12,10 +12,10 @@ const UserProfile = () => {
   const editClicked = () => {
     setModal(!modal);
   };
+  // still under maintenance
   return (
     <React.Fragment>
       <main className="mt-20 relative ">
-        {/* conditional */}
         {modal ? <ModalEditProfile onClick={editClicked} /> : ''}
 
         <div

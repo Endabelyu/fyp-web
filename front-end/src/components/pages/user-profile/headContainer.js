@@ -8,7 +8,7 @@ const HeadContainer = (props) => {
       <div className="flex justify-between mb-5">
         <h2 className="font-bold">{title}</h2>
         <div className="flex gap-x-2">
-          <BsFillEyeSlashFill />
+          {/* <BsFillEyeSlashFill /> */}
           <MdEdit className="cursor-pointer" onClick={onClick} />
         </div>
       </div>

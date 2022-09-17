@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../layout/Button';
+import Reason from './Reason';
 
 const Participate = () => {
   return (
@@ -70,40 +71,11 @@ const Participate = () => {
             </ul>
           </div>
         </section>
-        <section className="Reason w-full mx-auto px-6 pt-10 pb-6 bg-[#CCD1FE] mt-4 text-center">
+        <section className="Reason w-full mx-auto px-6 py-10 bg-[#CCD1FE] mt-4 text-center">
           <h2 className="text-slate-800 text-2xl font-bold">
-            Why you should get involved
+            Why you should get participated
           </h2>
-          <ul className="flex justify-around">
-            <li className="bg-white rounded-lg drop-shadow-lg">
-              <h3 className="text-blue-500 font-bold">Flexibility</h3>
-              <p>
-                You can join on your own time. It's not strict so you can get
-                involved when it's convenient for you.
-              </p>
-            </li>
-            <li className="bg-white rounded-lg drop-shadow-lg">
-              <h3 className="text-blue-500 font-bold">Impact</h3>
-              <p>
-                The features you work on or the feature you create will help
-                many developers make portfolios or show their projects.
-              </p>
-            </li>
-            <li className="bg-white rounded-lg drop-shadow-lg">
-              <h3 className="text-blue-500 font-bold">Experience</h3>
-              <p>
-                You'll get the chance to work within a team and to work on new
-                and interesting features that will expand your capabilities.
-              </p>
-            </li>
-            <li className="bg-white rounded-lg drop-shadow-lg">
-              <h3 className="text-blue-500 font-bold">Recognition</h3>
-              <p>
-                Significant Contributors will be listed on this page and on our
-                Github.
-              </p>
-            </li>
-          </ul>
+          <Reason />
         </section>
         <section id="contact" className="Contact">
           <form action="">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './card';
-import CreatorsData from './CreatorsData';
+import CreatorsData from './creatorsData';
 
 const Creators = () => {
   const data = CreatorsData;

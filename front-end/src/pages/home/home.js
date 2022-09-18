@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Image from '../../../assets/srcImg/srcImg';
+import Image from '../../assets/srcImg/srcImg';
 import { VscAccount } from 'react-icons/vsc';
 import { BiAddToQueue } from 'react-icons/bi';
 import { GrGroup } from 'react-icons/gr';
 import axios from 'axios';
 import CardProject from './cardProject';
-import Button from '../../layout/Button';
+import Button from '../../components/layout/button';
 
 const Home = () => {
   const { websiteCartoon } = Image;

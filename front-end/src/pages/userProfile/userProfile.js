@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from '../../../assets/srcImg/srcImg';
+import Image from '../../assets/srcImg/srcImg';
 import CardProjectProfile from './cardProjectProfile';
 import HeadContainer from './headContainer';
 // import SkillsCategory from './skillsCategory';

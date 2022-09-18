@@ -1,6 +1,6 @@
-import People from '../../../assets/srcImg/people.png';
-import Rizky from '../../../assets/srcImg/rizky.jpeg';
-import Naswa from '../../../assets/srcImg/naswa.jpg';
+import People from '../../assets/srcImg/people.png';
+import Rizky from '../../assets/srcImg/rizky.jpeg';
+import Naswa from '../../assets/srcImg/naswa.jpg';
 
 const CreatorsData = [
   {

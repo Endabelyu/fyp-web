@@ -1,7 +1,7 @@
 import React from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 import InputContainer from './InputContainer';
-import Button from '../../layout/Button';
+import Button from '../../components/layout/button';
 
 const modalEditProject = (props) => {
   const { onClick } = props;
@@ -17,9 +17,7 @@ const modalEditProject = (props) => {
         <form className="px-4 mt-6 " action="">
           <InputContainer labelName="Project name" />
           <div className="mx-auto w-full my-6">
-            <label className="mr-4" >
-              Choose your Project
-            </label>
+            <label className="mr-4">Choose your Project</label>
             <input className="text-white" type="file" />
           </div>
 

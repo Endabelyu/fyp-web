@@ -1,14 +1,14 @@
-import Login from './components/pages/sign/Login';
+import Login from './pages/sign/login';
 import { Routes, Route } from 'react-router-dom';
-import Register from './components/pages/sign/Register';
+import Register from './pages/sign/register';
 // import Dashboard from './components/Dashboard';
-import MainLayouts from './components/layout/main.layout';
-import Creators from './components/pages/Creator/Creators';
-import About from './components/pages/about/About';
-import Home from './components/pages/home/Home';
-import Participate from './components/pages/Participate/Participate';
-import UserProfile from './components/pages/user-profile/userProfile';
-import IsLoginHomePage from './components/pages/isLoginHomePage/isLoginHomePage';
+import MainLayouts from './components/layout/mainLayout';
+import Creators from './pages/Creator/creators';
+import About from './pages/about/about';
+import Home from './pages/home/home';
+import Participate from './pages/participate/participate';
+import UserProfile from './pages/userProfile/userProfile';
+import IsLoginHomePage from './pages/isLoginHomePage/isLoginHomePage';
 function App() {
   return (
     <>

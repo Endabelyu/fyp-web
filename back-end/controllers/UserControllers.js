@@ -1,5 +1,5 @@
 import db from "../config/Database.js";
-import Users from "../Models/UserModel.js";
+import {Users, Project, Image, Contact} from "../models/Index.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 import InputContainer from './InputContainer';
-import Button from '../../components/layout/button';
+// import Button from '../../components/layout/button';
+import Button from '../../components/layout/Button';
 
 const modaleditContact = (props) => {
   const { onClick } = props;

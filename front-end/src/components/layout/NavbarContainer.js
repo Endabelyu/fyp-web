@@ -1,7 +1,8 @@
 // import axios from 'axios';
 import React from 'react';
-import NavbarisLogin from './navbarisLogin';
-import NavbarNotLogin from './navbarNotLogin';
+import NavbarisLogin from './NavbarisLogin';
+// import NavbarNotLogin from './navbarNotLogin';
+import NavbarNotLogin from './NavbarNotLogin';
 // import { navDes } from '../pages/style';
 // import { useNavigate } from 'react-router-dom';
 // import { useMatch } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import express from 'express';
 import db from './config/Database.js';
-import users from './models/UserModel.js';
+// import users from './models/UserModel.js';
 import router from './routes/index.js';
 import dotenv from 'dotenv';
 import cookie from 'cookie-parser';

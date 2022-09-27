@@ -9,6 +9,7 @@ export const getProject = async (req, res) => {
       include: [
         {
           model: Users,
+          required: false,
         },
       ],
     });

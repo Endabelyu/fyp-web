@@ -22,7 +22,7 @@ const Navbar = (props) => {
 
   let navbar;
 
-  if (pathname !== '/userProfile') {
+  if (pathname !== '/userProfile' && pathname !== '/home_login') {
     navbar = <NavbarNotLogin />;
   } else {
     navbar = <NavbarisLogin />;

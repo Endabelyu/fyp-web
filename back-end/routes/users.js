@@ -6,7 +6,7 @@ import {
   Login,
   Logout,
   Register,
-} from '../controllers/UserControllers.js';
+} from '../controllers/userControllers.js';
 import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();

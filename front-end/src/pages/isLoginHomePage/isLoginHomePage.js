@@ -8,11 +8,12 @@ const IsLoginHomePage = () => {
   const [token, setToken] = useState('');
   const [expire, setExpire] = useState('');
   const [users, setUsers] = useState([]);
+  const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     refreshToken();
-    getUsers();
+    getProject();
   }, []);
 
   const refreshToken = async () => {
@@ -49,13 +50,10 @@ const IsLoginHomePage = () => {
     }
   );
 
-  const getUsers = async () => {
-    const response = await axiosJwt.get('http://localhost:5000/users', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    setUsers(response.data);
+  const getProject = async () => {
+    const response = await axiosJwt.get('http://localhost:5000/project');
+    
+    setProjects(response.data);
   };
 
   return (
@@ -67,209 +65,34 @@ const IsLoginHomePage = () => {
               Filter
             </button>
           </div>
-          <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {/* show project */}
-            {/* butuh disederhanakan bersama nanti */}
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
+            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+              {projects.map((project, index) =>(
+                <div className="group relative mx-4">
+                  <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
+                    <img
+                      src={`${project.image}`}
+                      alt="Front of men&#039;s Basic Tee in black"
+                      className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
+                    />
+                  </div>
+                  <div className="mt-4 flex justify-between w-70">
+                    <span className="flex intems-center">
+                      <img
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt=""
+                        className="h-12 w-12 flex-shrink-0 rounded-full"
+                      />
+                      <span className="my-auto ml-2">{project.user.name}</span>
+                    </span>
+                    <span>
+                      <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
+                        {project.name}
+                      </p>
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-
-            <div className="group relative mx-4">
-              <div className="min-h-80 aspect-w-1 w-70 aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-50">
-                <img
-                  src="https://aux.iconspalace.com/uploads/16979818922080465640.png"
-                  alt="Front of men&#039;s Basic Tee in black"
-                  className="h-full w-full object-center lg:h-[80%] lg:w-[80%] my-6 mx-6"
-                />
-              </div>
-              <div className="mt-4 flex justify-between w-70">
-                <span className="flex intems-center">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                    className="h-12 w-12 flex-shrink-0 rounded-full"
-                  />
-                  <span className="my-auto ml-2">User Name</span>
-                </span>
-                <span>
-                  <p className="text-[10px] text-white bg-blue-400 py-1 px-2 rounded-full">
-                    on progress
-                  </p>
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </React.Fragment>

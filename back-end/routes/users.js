@@ -1,7 +1,13 @@
 import express from 'express';
-import { refreshToken } from '../controllers/RefreshToken.js';
-import { getUsers, getUsersPag, Login, Logout, Register } from '../controllers/UserControllers.js';
-import { verifyToken } from '../middleware/VerifyToken.js'; 
+import { refreshToken } from '../controllers/refreshToken.js';
+import {
+  getUsers,
+  getUsersPag,
+  Login,
+  Logout,
+  Register,
+} from '../controllers/UserControllers.js';
+import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();
 

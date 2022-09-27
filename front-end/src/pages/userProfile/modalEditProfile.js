@@ -1,8 +1,7 @@
 import React from 'react';
-// import Button from '../../components/layout/button';
-import Button from '../../components/layout/Button';
+import Button from '../../components/layout/button';
 import { VscChromeClose } from 'react-icons/vsc';
-import InputContainer from './InputContainer';
+import InputContainer from './inputContainer';
 const ModalEditProfile = (props) => {
   const { onClick } = props;
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../../components/layout/button';
+// import Button from '../../components/layout/button';
+import Button from '../../components/layout/Button';
 import Reason from './reason';
 
 const Participate = () => {

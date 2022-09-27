@@ -1,12 +1,34 @@
 import db from "../config/Database.js";
-import Users from "../Models/UserModel.js";
+import {Users, Project, Image, Contact} from "../models/Index.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export const getUsers = async(req, res) => {
     try {
-        const users = await Users.findAll();
+        const users = await Users.findAll({
+            include:{model: Project, required: true}
+        });
         res.json(users);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getUsersPag = async(req, res) => {
+    try {
+        const limit = parseInt(req.params.limit);
+        const page = parseInt(req.params.page);
+        const offset = (page-1)*limit;
+        const users = await Users.findAndCountAll({
+            limit:limit,
+            offset:offset,
+        });
+
+        if(users) return res.status(200).json({users});
+
+        return res.status(404).json({msg: "user kosong"});
+
+        
     } catch (error) {
         console.log(error);
     }

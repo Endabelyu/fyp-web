@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import React from 'react';
-import NavbarisLogin from './navbarIsLogin';
+import NavbarisLogin from './navbarisLogin';
 // import NavbarNotLogin from './navbarNotLogin';
 import NavbarNotLogin from './navbarNotLogin';
 // import { navDes } from '../pages/style';

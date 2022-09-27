@@ -5,9 +5,7 @@ import jwt from 'jsonwebtoken';
 
 export const getUsers = async(req, res) => {
     try {
-        const users = await Users.findAll({
-            include:{model: Project, required: true}
-        });
+        const users = await Users.findAll();
         res.json(users);
     } catch (error) {
         console.log(error);

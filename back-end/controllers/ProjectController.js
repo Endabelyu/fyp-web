@@ -112,22 +112,20 @@ export const uploadImage = async (req, res) => {
   if (req.files === null)
     return res.status(404).json({ msg: 'no file uploaded' });
   const projectId = req.params.id;
-  const subImage = req.files.subImage;
-  const sizeSubImage = subImage.data.length;
-  const extSubImage = path.extname(subImage.name);
-  const subImageName = subImage.md5 + extSubImage;
-  const urlSubImage = `${req.protocol}://${req.get(
-    'host'
-  )}/images/${subImageName}`;
+  const file = req.files.file;
+  const sizeFile = file.data.length;
+  const ext = path.extname(file.name);
+  const fileName = file.md5 + ext;
+  const urlImage = `${req.protocol}://${req.get('host')}/images/${fileName}`;
 
   const allowedType = ['.png', '.jpg', 'jpeg'];
 
-  if (!allowedType.includes(extSubImage.toLowerCase()))
+  if (!allowedType.includes(ext.toLowerCase()))
     return res.status(422).json({ msg: 'invaled image' });
-  if (sizeSubImage > 5000000)
+  if (sizeFile > 5000000)
     return res.status(422).json({ msg: 'image must be less than 5 Mb' });
 
-  subImage.mv(`./public/images/${subImageName}`, async (err) => {
+  file.mv(`./public/images/${fileName}`, async (err) => {
     if (err) return res.status(500).json({ msg: err.message });
 
     try {

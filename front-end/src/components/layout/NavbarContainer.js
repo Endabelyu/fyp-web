@@ -1,5 +1,5 @@
-// import axios from 'axios';
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import NavbarisLogin from './navbarisLogin';
 // import NavbarNotLogin from './navbarNotLogin';
 import NavbarNotLogin from './navbarNotLogin';
@@ -7,17 +7,16 @@ import NavbarNotLogin from './navbarNotLogin';
 // import { useNavigate } from 'react-router-dom';
 // import { useMatch } from 'react-router-dom';
 const Navbar = (props) => {
-  // const navigate = useNavigate();
-  // const { hidden } = props;
+  const [users, setUsers] = useState();
 
-  // const Logout = async() => {
-  //     try {
-  //         await axios.delete('http://localhost:5000/logout');
-  //         navigate("/");
-  //     } catch (error) {
-  //         console.log(error);
-  //     }
-  // }
+  const getUsers = async () => {
+    const response = await axios.get('http://localhost:5000/users');
+
+    setUsers(response.data);
+  };
+
+  console.log(users);
+
   const pathname = window.location.pathname.toString();
 
   let navbar;

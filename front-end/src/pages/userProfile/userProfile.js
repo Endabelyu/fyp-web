@@ -56,7 +56,6 @@ const UserProfile = () => {
         <BackgroundModal />
         <section className="profile w-full h-auto mx-auto px-6 pt-10 pb-6 lg:w-[720px] ">
           <div className="flex w-full justify-between p-4 ">
-            {/* need form edit profile */}
             <img
               className="w-36 rounded-full border-4 border-slate-400"
               src={Image.People}
@@ -72,7 +71,7 @@ const UserProfile = () => {
           <div className="">
             <h1 className="font-bold text-xl">Andy</h1>
             <p className="mb-3 text-slate-500">@Andyhere</p>
-            <p className="mb-3 ">I'am newbie web developer</p>
+            <p className="bio mb-3 ">I'am newbie web developer</p>
             <ul className="flex flex-wrap gap-x-4">
               <li className="text-slate-500">germany</li>
               <li>

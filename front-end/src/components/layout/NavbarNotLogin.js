@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from './button';
+import { NavLink } from 'react-router-dom';
 
 const NavbarNotLogin = () => {
   const pathname = window.location.pathname.toString();
@@ -18,16 +19,16 @@ const NavbarNotLogin = () => {
       >
         <ul className=" static flex flex-col px-3 w-[500px] text-[#01020F] text-xl  mt-2 justify-between align-baseline md:flex-row md:px-0 md:mx-8 lg:ml-[17rem] md:text-md ">
           <li className=" mb-4 md:mb-0">
-            <a href="/">Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className=" mb-4 md:mb-0">
-            <a href="/creators">Creators</a>
+            <NavLink to="/creators">Creators</NavLink>
           </li>
           <li className=" mb-4 md:mb-0">
-            <a href="/about">About</a>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li className=" mb-4 md:mb-0">
-            <a href="/participate">Participate</a>
+            <NavLink to="/participate">Participate</NavLink>
           </li>
         </ul>
         <div className=" flex justify-around md:w-[200px] lg:mr-[20px]">

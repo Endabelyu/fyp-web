@@ -1,5 +1,5 @@
 import express from 'express';
-import db from './config/Database.js';
+import db from './config/database.js';
 import FileUpload from 'express-fileupload';
 import users from './routes/users.js';
 import project from './routes/project.js';
@@ -21,7 +21,7 @@ const app = express();
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(cookie());
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.use(users);
 app.use(FileUpload());
 app.use('/project', project);

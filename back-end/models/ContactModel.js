@@ -1,20 +1,24 @@
-import db from "../config/Database.js";
+import db from '../config/database.js';
 import sequelize from 'sequelize';
 
-const {DataTypes} = sequelize;
+const { DataTypes } = sequelize;
 
-const Contact = db.define('contacts',{
+const Contact = db.define(
+  'contacts',
+  {
     type: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     url: {
-        type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     image: {
-        type: DataTypes.TEXT
-    }
-},{
-    freezeTabelName: true
-})
+      type: DataTypes.TEXT,
+    },
+  },
+  {
+    freezeTabelName: true,
+  }
+);
 
 export default Contact;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BiLeftArrow, BiSearch } from 'react-icons/bi';
-import Button from './Button';
+import Button from './button';
 import Image from '../../assets/srcImg/srcImg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { IoHomeSharp } from 'react-icons/io5';
@@ -61,7 +61,7 @@ const NavbarisLogin = () => {
             } absolute right-0 top-[4.3rem] md:top-[5rem] w-40  px-4  py-4 shadow-xl transition duration-500 bg-white md:w-[220px] lg:w-[290px] md:px-6 lg:px-8 `}
           >
             <ul className="flex flex-col gap-y-4 mb-4 cursor-pointer">
-              <NavLink className="flex gap-x-2" to="#">
+              <NavLink className="flex gap-x-2" to="/home_login">
                 <IoHomeSharp className="text-lg mt-[0.1rem]" />
                 <p className="font-light">Home</p>
               </NavLink>

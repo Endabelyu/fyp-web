@@ -1,20 +1,24 @@
-import db from "../config/Database.js";
+import db from '../config/database.js';
 import sequelize from 'sequelize';
 
-const {DataTypes} = sequelize;
+const { DataTypes } = sequelize;
 
-const Project = db.define('projects',{
+const Project = db.define(
+  'projects',
+  {
     name: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     image: {
-        type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     url: {
-        type: DataTypes.TEXT
-    }
-},{
-    freezeTableName: true
-});
+      type: DataTypes.TEXT,
+    },
+  },
+  {
+    freezeTableName: true,
+  }
+);
 
 export default Project;

@@ -5,7 +5,7 @@ import { BiAddToQueue } from 'react-icons/bi';
 import { GrGroup } from 'react-icons/gr';
 import axios from 'axios';
 import CardProject from './cardProject';
-import Button from '../../components/layout/button';
+import Button from '../../components/layout/Button';
 
 const Home = () => {
   const { websiteCartoon } = Image;

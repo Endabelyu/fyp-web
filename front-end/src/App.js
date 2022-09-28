@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Register from './pages/sign/register';
 // import Dashboard from './components/Dashboard';
 import MainLayouts from './components/layout/mainLayout';
-import Creators from './pages/creator/creators';
+import Creators from './pages/Creator/creators';
 import About from './pages/about/about';
 import Home from './pages/home/home';
 import Participate from './pages/participate/participate';

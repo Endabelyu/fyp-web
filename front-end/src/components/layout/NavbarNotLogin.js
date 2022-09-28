@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from './button';
+import Button from './Button';
 
 const NavbarNotLogin = () => {
   const pathname = window.location.pathname.toString();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BiLeftArrow, BiSearch } from 'react-icons/bi';
-import Button from './Button';
+import Button from './button';
 import Image from '../../assets/srcImg/srcImg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { IoHomeSharp } from 'react-icons/io5';

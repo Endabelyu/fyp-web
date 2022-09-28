@@ -1,7 +1,6 @@
 import React from 'react';
 import { BsGithub } from 'react-icons/bs';
-// import Button from '../../components/layout/button';
-import Button from '../../components/layout/Button';
+import Button from '../../components/layout/button';
 
 const About = () => {
   return (

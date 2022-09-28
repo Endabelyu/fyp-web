@@ -19,6 +19,7 @@ const ModalEditProfile = (props) => {
           </div>
           <InputContainer labelName="DisplayName" />
           <InputContainer labelName="Username" />
+          <InputContainer labelName="Bio" />
           <InputContainer labelName="Location" />
           <InputContainer labelName="URL" />
 

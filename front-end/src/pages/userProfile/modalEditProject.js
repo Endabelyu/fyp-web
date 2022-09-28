@@ -16,6 +16,7 @@ const modalEditProject = (props) => {
         </ul>
         <form className="px-4 mt-6 " action="">
           <InputContainer labelName="Project name" />
+          <InputContainer labelName="Url" />
           <div className="mx-auto w-full my-6">
             <label className="mr-4">Choose your Project</label>
             <input className="text-white" type="file" />

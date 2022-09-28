@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../components/layout/button';
 import { VscChromeClose } from 'react-icons/vsc';
 import InputContainer from './inputContainer';
 const ModalEditProfile = (props) => {
   const { onClick } = props;
+
+  const [DisplayName, setDisplayName] = useState('');
+  const [UserName, setUserName] = useState('');
+  const [Bio, setBio] = useState('');
+  const [Location, setLocation] = useState('');
+  const [Url, setUrl] = useState('');
+
   return (
     <React.Fragment>
       <section className="absolute bg-white top-20 right-[20rem] z-[3]  mx-autow-full mx-auto shadow-lg overflow-y-scroll max-h-[440px] lg:w-[720px] ">
@@ -13,7 +20,7 @@ const ModalEditProfile = (props) => {
             <VscChromeClose className="cursor-pointer" onClick={onClick} />
           </li>
         </ul>
-        <form className="px-4 mt-16 " action="">
+        <form className="px-4 mt-16 " onSubmit="">
           <div className="mx-auto w-full">
             <input className="text-white" type="file" />
           </div>

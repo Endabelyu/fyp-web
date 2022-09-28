@@ -1,5 +1,5 @@
 import db from '../config/Database.js';
-import { Users, Project, Image, Contact } from '../models/index.js';
+import { Users } from '../models/index.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -120,4 +120,17 @@ export const Logout = async (req, res) => {
 
   res.clearCookie('refreshToken');
   return res.sendStatus(200);
+};
+
+export const UpdateUser = async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const user = await Users.findAll({
+      where: {
+        id: userId,
+      },
+    });
+  } catch (error) {
+    res.status(404).json({ msg: 'datamu tidak berhasil diubah' });
+  }
 };

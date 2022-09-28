@@ -1,5 +1,5 @@
 import express from 'express';
-import db from './config/database.js';
+import db from './config/Database.js';
 import FileUpload from 'express-fileupload';
 import users from './routes/users.js';
 import project from './routes/project.js';

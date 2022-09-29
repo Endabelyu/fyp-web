@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
 import InputContainer from './inputContainer';
 import Button from '../../components/layout/button';
+import axios from 'axios';
 
-const modalEditProject = (props) => {
+const ModalEditProject = (props) => {
   const { onClick } = props;
+  const [projectName, setprojectName] = useState('');
+  const [projectUrl, setprojectUrl] = useState('');
+
+  const addNewProject = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:5000/create/:id', {});
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.msg);
+      }
+    }
+  };
   return (
     <React.Fragment>
       <section className="absolute bg-white top-[30rem] right-[20rem] z-[3]  mx-autow-full mx-auto shadow-lg overflow-y-scroll max-h-[440px] lg:w-[720px] ">
@@ -14,9 +28,19 @@ const modalEditProject = (props) => {
             <VscChromeClose className="cursor-pointer" onClick={onClick} />
           </li>
         </ul>
-        <form className="px-4 mt-6 " onSubmit={}>
-          <InputContainer labelName="Project name" />
-          <InputContainer labelName="Url" />
+        <form className="px-4 mt-6 " onSubmit={addNewProject}>
+          <InputContainer
+            labelName="Project Title"
+            placeholder="input your project title"
+            value={projectName}
+            onChange={(e) => setprojectName(e.target.value)}
+          />
+          <InputContainer
+            labelName="Url"
+            placeholder="input your project link"
+            value={projectUrl}
+            onChange={(e) => setprojectUrl(e.target.value)}
+          />
           <div className="mx-auto w-full my-6">
             <label className="mr-4">Choose your Project</label>
             <input className="text-white" type="file" />
@@ -34,4 +58,4 @@ const modalEditProject = (props) => {
   );
 };
 
-export default modalEditProject;
+export default ModalEditProject;

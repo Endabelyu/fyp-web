@@ -14,7 +14,7 @@ const Navbar = (props) => {
     setUsers(response.data);
   };
 
-  console.log(users);
+  // console.log(users);
 
   const pathname = window.location.pathname.toString();
 

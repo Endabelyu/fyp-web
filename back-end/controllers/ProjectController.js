@@ -19,6 +19,25 @@ export const getProject = async (req, res) => {
   }
 };
 
+export const haveProject = async (req, res) => {
+  try {
+    const response = await Project.findAll({
+      where: {
+        userId: req.params.id,
+      },
+      include: [
+        {
+          model: Users,
+          required: true,
+        },
+      ],
+    });
+    res.json(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const findProject = async (req, res) => {
   try {
     const response = await Project.findOne({

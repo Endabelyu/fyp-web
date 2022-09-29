@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from '../../assets/srcImg/srcImg';
 import CardProjectProfile from './cardProjectProfile';
 import HeadContainer from './headContainer';
@@ -8,11 +8,70 @@ import ModalEditProfile from './modalEditProfile';
 import ModalEditProject from './modalEditProject';
 import ModalEditContact from './modalEditContact';
 import BackgroundModal from './backgroundModal';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
   const [editProfile, seteditProfile] = useState(false);
   const [editProject, seteditProject] = useState(false);
   const [editContact, seteditContact] = useState(false);
+
+  // -------------------------------------------------------
+
+  const [userId, setUserId] = useState();
+  const [name, setName] = useState();
+  const [token, setToken] = useState();
+  const [expire, setExpire] = useState();
+  const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    refreshToken();
+    Project();
+  }, []);
+
+  const refreshToken = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/token`);
+      setToken(response.data.accessToken);
+      const decoded = jwt_decode(response.data.accessToken);
+
+      setName(decoded.name);
+      setExpire(decoded.exp);
+    } catch (error) {
+      if (error.response) {
+        navigate('/login');
+      }
+    }
+  };
+
+  const axiosJwt = axios.create();
+
+  axiosJwt.interceptors.request.use(
+    async (config) => {
+      const currentDate = new Date();
+      if (expire * 1000 < currentDate.getTime()) {
+        const response = await axios.get('http://localhost:5000/token');
+        config.headers.Authorization = `Bearer ${response.data.accessToken}`;
+        setToken(response.data.accessToken);
+        const decoded = jwt_decode(response.data.accessToken);
+        setUserId(decoded.id);
+        setName(decoded.name);
+        setExpire(decoded.exp);
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+
+  const Project = async() => {
+    const response = await axios.get(`http://localhost:5000/project/have/6`);
+
+    setProjects(response.data);
+  }
 
   const editProfileClicked = () => {
     seteditProfile(!editProfile);
@@ -69,7 +128,7 @@ const UserProfile = () => {
             </button>
           </div>
           <div className="">
-            <h1 className="font-bold text-xl">Andy</h1>
+            <h1 className="font-bold text-xl uppercase">{name}</h1>
             <p className="mb-3 text-slate-500">@Andyhere</p>
             <p className="bio mb-3 ">I'am newbie web developer</p>
             <ul className="flex flex-wrap gap-x-4">
@@ -89,38 +148,21 @@ const UserProfile = () => {
             onClick={editProjectClicked}
             title="My Creative Project"
           />
+          
           <div className="flex flex-wrap gap-x-4 justify-between mt-16">
+          {projects.map((project, index)=>(
             <CardProjectProfile
               id="1"
               url={Image.websiteCartoon}
               title="project"
+              name={project.name}
+              image={project.image}
+              visitLink={project.url}
             />
-            <CardProjectProfile
-              id="1"
-              url={Image.websiteCartoon}
-              title="project"
-            />
-            <CardProjectProfile
-              id="1"
-              url={Image.websiteCartoon}
-              title="project"
-            />
-            <CardProjectProfile
-              id="1"
-              url={Image.websiteCartoon}
-              title="project"
-            />
-            <CardProjectProfile
-              id="1"
-              url={Image.websiteCartoon}
-              title="project"
-            />
-            <CardProjectProfile
-              id="1"
-              url={Image.websiteCartoon}
-              title="project"
-            />
-          </div>
+          ))}
+        </div>
+          
+          
         </section>
         {/* <section className="userSkill w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300  lg:w-[720px] ">
           <HeadContainer onClick={editProfileClicked} title="Tech Stack" />

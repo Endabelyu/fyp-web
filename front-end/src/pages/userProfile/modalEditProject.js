@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
-import InputContainer from './inputContainer';
+import InputContainer from './InputContainer';
 import Button from '../../components/layout/button';
 import axios from 'axios';
 

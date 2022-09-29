@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InputContainer = (props) => {
-  const { labelName } = props;
+  const { labelName, placeholder, onChange, value } = props;
   return (
     <React.Fragment>
       <div className="mt-2">
@@ -10,6 +10,9 @@ const InputContainer = (props) => {
           <input
             className="w-full b-2 focus:outline-sky-400 mt-2"
             type="text"
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
           />
         </div>
       </div>

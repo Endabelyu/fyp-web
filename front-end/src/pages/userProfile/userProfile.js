@@ -19,24 +19,28 @@ const UserProfile = () => {
 
   // -------------------------------------------------------
 
-  const [userId, setUserId] = useState();
-  const [name, setName] = useState();
-  const [token, setToken] = useState();
-  const [expire, setExpire] = useState();
+  const [userId, setUserId] = useState('0');
+  const [user, setUser] = useState('');
+  const [name, setName] = useState('');
+  const [token, setToken] = useState('');
+  const [expire, setExpire] = useState('');
   const [projects, setProjects] = useState([]);
+  let [decodes, setDecodes] = useState([]);
   const navigate = useNavigate();
+
 
   useEffect(() => {
     refreshToken();
     Project();
-  }, []);
+  },[userId]);
 
   const refreshToken = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/token`);
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
-
+      setDecodes(decoded.data);
+      setUserId(decoded.userId);
       setName(decoded.name);
       setExpire(decoded.exp);
     } catch (error) {
@@ -51,12 +55,13 @@ const UserProfile = () => {
   axiosJwt.interceptors.request.use(
     async (config) => {
       const currentDate = new Date();
-      if (expire * 1000 < currentDate.getTime()) {
+      if (expire * 100 < currentDate.getTime()) {
         const response = await axios.get('http://localhost:5000/token');
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
-        setUserId(decoded.id);
+        console.log(decoded, "decoded");
+        setUserId(decoded.userId);
         setName(decoded.name);
         setExpire(decoded.exp);
       }
@@ -68,9 +73,17 @@ const UserProfile = () => {
   );
 
   const Project = async() => {
-    const response = await axios.get(`http://localhost:5000/project/have/6`);
-
-    setProjects(response.data);
+    try {
+      const response = await axiosJwt.get(`http://localhost:5000/project/have/${userId}`,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      setProjects(response.data);
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   const editProfileClicked = () => {
@@ -147,9 +160,11 @@ const UserProfile = () => {
           <HeadContainer
             onClick={editProjectClicked}
             title="My Creative Project"
+            project={Project}
           />
           
           <div className="flex flex-wrap gap-x-4 justify-between mt-16">
+          
           {projects.map((project, index)=>(
             <CardProjectProfile
               id="1"
@@ -158,6 +173,7 @@ const UserProfile = () => {
               name={project.name}
               image={project.image}
               visitLink={project.url}
+              key={index}
             />
           ))}
         </div>

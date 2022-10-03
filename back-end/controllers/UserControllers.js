@@ -12,6 +12,19 @@ export const getUsers = async (req, res) => {
   }
 };
 
+export const getUser = async (req, res) => {
+  try {
+    const users = await Users.findOne({
+      where:{
+        id:req.params.id
+      }
+    });
+    res.json(users);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getUsersPag = async (req, res) => {
   try {
     const limit = parseInt(req.params.limit);

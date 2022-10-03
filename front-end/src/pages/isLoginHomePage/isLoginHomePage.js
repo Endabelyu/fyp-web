@@ -51,7 +51,7 @@ const IsLoginHomePage = () => {
   );
 
   const getProject = async () => {
-    const response = await axiosJwt.get('http://localhost:5000/project');
+    const response = await axiosJwt.get('http://localhost:5000/project/project_page/3&2');
     
     setProjects(response.data);
   };

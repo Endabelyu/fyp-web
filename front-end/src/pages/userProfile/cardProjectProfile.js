@@ -3,10 +3,10 @@ import { FiBook } from 'react-icons/fi';
 import { BsLink45Deg } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 const CardProjectProfile = (props) => {
-  const { id, url, title, name, image, visitLink } = props;
+  const { id, url, title, name, image, visitLink, key } = props;
   return (
     <React.Fragment>
-      <div className=" mb-10 rounder-lg mx-4" key={id}>
+      <div className=" mb-10 rounder-lg mx-4" key={key}>
         <div className='mb-4'>
           <img
             className=" rounded-lg w-full mb-2 md:w-auto lg:max-h-[150px] md:max-h-[150px] lg:w-auto"

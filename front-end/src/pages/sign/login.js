@@ -15,7 +15,8 @@ const Login = () => {
         email: email,
         password: password,
       });
-      navigate('/userProfile');
+      navigate('/home_login');
+      window.location.reload();
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);

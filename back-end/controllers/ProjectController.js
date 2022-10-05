@@ -25,6 +25,12 @@ export const getProjectPage = async (req, res) => {
     const page = parseInt(req.params.page);
     const offset = (page - 1) * limit;
     const projects = await Project.findAndCountAll({
+      include: [
+        {
+          model: Users,
+          required: false,
+        },
+      ],
       limit: limit,
       offset: offset,
     });

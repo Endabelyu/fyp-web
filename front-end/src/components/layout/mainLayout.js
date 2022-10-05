@@ -6,7 +6,6 @@ const MainLayouts = (props) => {
 
   return (
     <React.Fragment>
-      <Navbar />
       {children}
       <Footer />
     </React.Fragment>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { VscChromeClose } from 'react-icons/vsc';
-import InputContainer from './InputContainer';
+import InputContainer from './inputContainer';
 import Button from '../../components/layout/button';
 
 const modaleditContact = (props) => {

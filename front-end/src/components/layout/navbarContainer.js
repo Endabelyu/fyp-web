@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import NavbarisLogin from './navbarIsLogin';
 import NavbarNotLogin from './navbarNotLogin';
 // import { navDes } from '../pages/style';
@@ -28,9 +29,11 @@ const Navbar = (props) => {
 
   return (
     <nav className="fixed top-0 z-10 left-0 flex justify-between w-full bg-white h-25 py-3 px-8 md:px-6 drop-shadow-md  lg:p-4">
-      <h1 className=" text-[#3371F2] text-4xl font-bold md:ml-2 lg:ml-14">
-        fyp
-      </h1>
+      <NavLink to="/" className="cursor-pointer">
+        <h1 className=" text-[#3371F2] text-4xl font-bold md:ml-2 lg:ml-14">
+          fyp
+        </h1>
+      </NavLink>
       {navbar}
     </nav>
   );

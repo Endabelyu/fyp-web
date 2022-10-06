@@ -15,7 +15,7 @@ const ModalEditProfile = (props) => {
   const updateUserProfile = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch('http://localhost:5000/', {
+      await axios.patch('http://localhost:5000/users', {
         name: DisplayName,
         username: UserName,
         bio: Bio,

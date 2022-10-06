@@ -122,14 +122,32 @@ export const Logout = async (req, res) => {
   return res.sendStatus(200);
 };
 
-export const UpdateUser = async (req, res) => {
-  const userId = req.params.id;
+export const updateUser = async (req, res) => {
   try {
     const user = await Users.findAll({
       where: {
-        id: userId,
+        id: req.params.id,
       },
     });
+
+    if (!user) return res.status(204).json({ msg: 'No Users Found' });
+    // const { name, bio, location, url, username, id } = user[0];
+    // console.log(name, bio, location, url, username, id);
+    await Users.update(
+      {
+        name: req.body.name,
+        username: req.body.username,
+        bio: req.body.bio,
+        location: req.body.location,
+        url: req.body.url,
+        image: req.body.image,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
   } catch (error) {
     res.status(404).json({ msg: 'datamu tidak berhasil diubah' });
   }

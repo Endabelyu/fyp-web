@@ -7,7 +7,7 @@ const modaleditContact = (props) => {
   const { onClick } = props;
   return (
     <React.Fragment>
-      <section className="absolute bg-white top-[55rem] right-[20rem] z-[3]  mx-autow-full mx-auto shadow-lg overflow-y-scroll max-h-[440px] lg:w-[720px] ">
+      <section className="absolute bg-white top-[30rem] right-[20rem] z-[3]  mx-autow-full mx-auto shadow-lg overflow-y-scroll max-h-[440px] lg:w-[720px] ">
         <ul className="flex justify-between font-bold text-xl w-full p-4  bg-white top-0 left-0 shadow-lg sticky ">
           <li>Edit Contact</li>
           <li className="flex text-xl font-bold ">

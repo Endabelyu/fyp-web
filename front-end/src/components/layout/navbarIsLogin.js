@@ -17,6 +17,7 @@ const NavbarisLogin = () => {
     try {
       await axios.delete('http://localhost:5000/logout');
       navigate('/');
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }

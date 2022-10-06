@@ -19,25 +19,32 @@ const UserProfile = () => {
 
   // -------------------------------------------------------
 
-  const [userId, setUserId] = useState();
-  const [name, setName] = useState();
-  const [token, setToken] = useState();
-  const [expire, setExpire] = useState();
+  const [userId, setUserId] = useState('0');
+  const [user, setUser] = useState('');
+  const [name, setName] = useState('');
+  const [createdAt, setCreatedAt] = useState('');
+  const [email, setEmail] = useState('');
+  const [token, setToken] = useState('');
+  const [expire, setExpire] = useState('');
   const [projects, setProjects] = useState([]);
+  const [decodes, setDecodes] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     refreshToken();
     Project();
-  }, []);
+  },[userId]);
 
   const refreshToken = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/token`);
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
-
+      setDecodes(decoded.data);
+      setUserId(decoded.userId);
       setName(decoded.name);
+      setCreatedAt(decoded.createdAt);
+      setEmail(decoded.email);
       setExpire(decoded.exp);
     } catch (error) {
       if (error.response) {
@@ -51,13 +58,16 @@ const UserProfile = () => {
   axiosJwt.interceptors.request.use(
     async (config) => {
       const currentDate = new Date();
-      if (expire * 1000 < currentDate.getTime()) {
+      if (expire * 100 < currentDate.getTime()) {
         const response = await axios.get('http://localhost:5000/token');
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
-        setUserId(decoded.id);
+        console.log(decoded, "decoded");
+        setUserId(decoded.userId);
         setName(decoded.name);
+        setCreatedAt(decoded.createdAt);
+        setEmail(decoded.email);
         setExpire(decoded.exp);
       }
       return config;
@@ -68,9 +78,17 @@ const UserProfile = () => {
   );
 
   const Project = async() => {
-    const response = await axios.get(`http://localhost:5000/project/have/6`);
-
-    setProjects(response.data);
+    try {
+      const response = await axios.get(`http://localhost:5000/project/have/${userId}`,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      setProjects(response.data);
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
   const editProfileClicked = () => {
@@ -97,7 +115,7 @@ const UserProfile = () => {
 
         {editProject ? (
           <div>
-            <ModalEditProject onClick={editProjectClicked} />
+            <ModalEditProject onClick={editProjectClicked} Project={Project} userId={userId} />
             <BackgroundModal onClick={editProjectClicked} state={editProject} />
           </div>
         ) : (
@@ -106,7 +124,7 @@ const UserProfile = () => {
 
         {editContact ? (
           <div>
-            <ModalEditContact onClick={editContactClicked} />
+            <ModalEditContact onClick={editContactClicked}  />
             <BackgroundModal onClick={editContactClicked} state={editContact} />
           </div>
         ) : (
@@ -129,17 +147,10 @@ const UserProfile = () => {
           </div>
           <div className="">
             <h1 className="font-bold text-xl uppercase">{name}</h1>
-            <p className="mb-3 text-slate-500">@Andyhere</p>
-            <p className="bio mb-3 ">I'am newbie web developer</p>
-            <ul className="flex flex-wrap gap-x-4">
-              <li className="text-slate-500">germany</li>
-              <li>
-                <a className="text-blue-400" href="https://instagram.com/andy">
-                  instagram.com/andy
-                </a>
-              </li>
-              <li className="text-slate-500">Joined September 2022</li>
-            </ul>
+            <div className='flex flex-row justify-between mt-4 mb-0'>
+              <div>{email}</div>
+              <div>Joined : {new Date(createdAt).toLocaleDateString()}</div>
+            </div>
           </div>
         </section>
 
@@ -147,9 +158,11 @@ const UserProfile = () => {
           <HeadContainer
             onClick={editProjectClicked}
             title="My Creative Project"
+            project={Project}
           />
           
           <div className="flex flex-wrap gap-x-4 justify-between mt-16">
+          
           {projects.map((project, index)=>(
             <CardProjectProfile
               id="1"
@@ -158,6 +171,7 @@ const UserProfile = () => {
               name={project.name}
               image={project.image}
               visitLink={project.url}
+              key={index}
             />
           ))}
         </div>
@@ -179,7 +193,7 @@ const UserProfile = () => {
         </section> */}
 
         <section className="userContact w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300 lg:w-[720px]">
-          <HeadContainer onClick={editContactClicked} title="Connect With Me" />
+          
           <div className="flex justify-around gap-x-6 mt-12">
             <a href="/">
               <BsGithub className="text-[50px]" />

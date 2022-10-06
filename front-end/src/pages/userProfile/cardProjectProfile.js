@@ -6,10 +6,10 @@ const CardProjectProfile = (props) => {
   const { id, url, title, name, image, visitLink } = props;
   return (
     <React.Fragment>
-      <div className=" mb-10 rounder-lg mx-4" key={id}>
+      <div className="mb-10 rounder-lg lg:mx-4 mx-0 w-[40%] lg:w-[25%]" >
         <div className='mb-4'>
           <img
-            className=" rounded-lg w-full mb-2 md:w-auto lg:max-h-[150px] md:max-h-[150px] lg:w-auto"
+            className=" rounded-lg mb-2 md:w-auto lg:min-h-[150px] md:max-h-[150px] lg:w-auto"
             src={image}
             alt={title}
           />
@@ -20,9 +20,9 @@ const CardProjectProfile = (props) => {
             <FiBook />
             <p className="text-sm text-blue-500 ">{name}</p>
           </div>
-          <div className="flex gap-x-2 cursor-pointer ">
+          <div className="flex gap-x-2 cursor-pointer w-[20rem] ">
             <BsLink45Deg />
-            <p className="text-sm  text-blue-700"><a href={visitLink}> Visit Project </a></p>
+            <p className="lg:text-sm text-xs text-blue-700"><a href={visitLink}> Visit Project </a></p>
           </div>
         </div>
       </div>

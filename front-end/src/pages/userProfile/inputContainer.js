@@ -4,17 +4,14 @@ const InputContainer = (props) => {
   const { labelName, placeholder, onChange, value } = props;
   return (
     <React.Fragment>
-      <div className="mt-2">
-        <label className="w-full font-bold">{labelName}</label>
-        <div className="border-2 border-slate-300/[.5] mt-2">
+      <div className="mt-2 ml-4 lg:w-[46%] w-[91%]">
           <input
-            className="w-full b-2 focus:outline-sky-400 mt-2"
+            className="border-2 border-blue-300 w-full px-4 py-3 mt-3 rounded-full text-[11px]"
             type="text"
             placeholder={placeholder}
             value={value}
             onChange={onChange}
           />
-        </div>
       </div>
     </React.Fragment>
   );

@@ -1,6 +1,7 @@
 import express from 'express';
 import { refreshToken } from '../controllers/refreshToken.js';
 import {
+  getUser,
   getUsers,
   getUsersPag,
   Login,
@@ -12,6 +13,7 @@ import { verifyToken } from '../middleware/verifyToken.js';
 const router = express.Router();
 
 router.get('/users', verifyToken, getUsers);
+router.get('/user/:id', verifyToken, getUser);
 router.post('/users', Register);
 router.post('/login', Login);
 router.get('/token', refreshToken);

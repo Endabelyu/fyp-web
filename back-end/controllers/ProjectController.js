@@ -19,6 +19,30 @@ export const getProject = async (req, res) => {
   }
 };
 
+export const getProjectPage = async (req, res) => {
+  try {
+    const limit = parseInt(req.params.limit);
+    const page = parseInt(req.params.page);
+    const offset = (page - 1) * limit;
+    const projects = await Project.findAndCountAll({
+      include: [
+        {
+          model: Users,
+          required: false,
+        },
+      ],
+      limit: limit,
+      offset: offset,
+    });
+
+    if (projects) return res.status(200).json({ projects });
+
+    return res.status(404).json({ msg: 'user kosong' });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const haveProject = async (req, res) => {
   try {
     const response = await Project.findAll({

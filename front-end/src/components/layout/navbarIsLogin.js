@@ -7,7 +7,8 @@ import { IoHomeSharp } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
 import axios from 'axios';
 
-const NavbarisLogin = () => {
+const NavbarisLogin = (props) => {
+  const {name} = props;
   const [toggle, setToggle] = useState(false);
   const profileClicked = () => {
     setToggle(!toggle);
@@ -17,6 +18,8 @@ const NavbarisLogin = () => {
     try {
       await axios.delete('http://localhost:5000/logout');
       navigate('/');
+      window.location.reload();
+      setToggle(false);
     } catch (error) {
       console.log(error);
     }
@@ -45,7 +48,7 @@ const NavbarisLogin = () => {
                 src={Image.People}
                 alt="user"
               />
-              <p className="mt-3 text-base lg:text-sm">userName</p>
+              <p className="mt-3 text-base lg:text-sm">{name}</p>
               <span
                 className={` ${
                   toggle ? 'transform  rotate-[180deg]' : ''
@@ -61,11 +64,11 @@ const NavbarisLogin = () => {
             } absolute right-0 top-[4.3rem] md:top-[5rem] w-40  px-4  py-4 shadow-xl transition duration-500 bg-white md:w-[220px] lg:w-[290px] md:px-6 lg:px-8 `}
           >
             <ul className="flex flex-col gap-y-4 mb-4 cursor-pointer">
-              <NavLink className="flex gap-x-2" to="/home_login">
+              <NavLink className="flex gap-x-2" to="/home_login" onClick={()=>{setToggle(!toggle)}} >
                 <IoHomeSharp className="text-lg mt-[0.1rem]" />
                 <p className="font-light">Home</p>
               </NavLink>
-              <NavLink className="flex gap-x-2" to="/userProfile">
+              <NavLink className="flex gap-x-2" to="/userProfile" onClick={()=>{setToggle(!toggle)}}>
                 <CgProfile className="text-lg mt-[0.1rem]" />
                 <p className="font-light"> Profile</p>
               </NavLink>

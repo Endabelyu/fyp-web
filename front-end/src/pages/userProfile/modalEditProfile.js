@@ -31,7 +31,8 @@ const ModalEditProfile = (props) => {
 
   return (
     <React.Fragment>
-      <section className="absolute bg-white top-20 right-[20rem] z-[3]  mx-autow-full mx-auto shadow-lg overflow-y-scroll max-h-[440px] lg:w-[720px] ">
+      <div className='w-full flex justify-center'>
+      <section className="absolute bg-white top-[5rem] z-[3] w-full mx-auto shadow-lg overflow-y-scroll h-auto lg:w-[720px] ">
         <ul className="flex justify-between font-bold text-xl w-full p-4  bg-white top-0 left-0 shadow-lg sticky ">
           <li>Edit Profile</li>
           <li className="flex text-xl font-bold ">
@@ -81,6 +82,8 @@ const ModalEditProfile = (props) => {
           </div>
         </form>
       </section>
+      </div>
+      
     </React.Fragment>
   );
 };

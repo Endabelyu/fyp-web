@@ -22,7 +22,7 @@ const Navbar = (props) => {
 
   useEffect(()=>{
     refreshToken();
-  },[]);
+  },[name]);
 
   const refreshToken = async () => {
     try {

@@ -31,8 +31,11 @@ const IsLoginHomePage = () => {
     refreshToken();
     getProject();
     const countPage = countProject / limitProject;
-    setCountPage(Math.round(countPage));
+    // setCountPage(Math.round(countPage.toFixed(3)));
+    setCountPage(Math.ceil(countPage.toFixed(5)));
   }, [countProject, limitProject, pageProject]);
+
+  console.log(countPage, "count page");
 
   const refreshToken = async () => {
     try {
@@ -115,7 +118,7 @@ const IsLoginHomePage = () => {
               Filter
             </button>
           </div>
-            <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 min-h-[40rem]">
               {projects.map((project, index) =>(
                 <div className="group relative mx-4 ">
                   <div className="max-h-80 aspect-w-1 w-70 aspect-h-1 cursor-pointer overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-60">

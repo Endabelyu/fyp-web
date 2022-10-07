@@ -22,7 +22,7 @@ app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(cookie());
 app.use(express.json());
 app.use(express.static('public'));
-app.use(users);
 app.use(FileUpload());
+app.use(users);
 app.use('/project', project);
 app.listen(5000, () => console.log('server running at port 5000'));

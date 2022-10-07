@@ -19,13 +19,14 @@ export const refreshToken = async (req, res) => {
         const userId = user[0].id;
         const name = user[0].name;
         const email = user[0].email;
+        const image = user[0].image;
         const createdAt = user[0].createdAt;
 
         const accessToken = jwt.sign(
-          { userId, name, email, createdAt },
+          { userId, name, email, createdAt, image },
           process.env.ACCESS_TOKEN_SECRET,
           {
-            expiresIn: '15s',
+            expiresIn: '600s',
           }
         );
         res.json({ accessToken });

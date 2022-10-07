@@ -6,14 +6,17 @@ const { DataTypes } = sequelize;
 const Contact = db.define(
   'contacts',
   {
-    type: {
+    instagram: {
       type: DataTypes.STRING,
     },
-    url: {
-      type: DataTypes.TEXT,
+    github: {
+      type: DataTypes.STRING,
     },
-    image: {
-      type: DataTypes.TEXT,
+    linkedin: {
+      type: DataTypes.STRING,
+    },
+    twitter: {
+      type: DataTypes.STRING,
     },
   },
   {

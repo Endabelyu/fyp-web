@@ -15,9 +15,9 @@ export const getUsers = async (req, res) => {
 export const getUser = async (req, res) => {
   try {
     const users = await Users.findOne({
-      where:{
-        id:req.params.id
-      }
+      where: {
+        id: req.params.id,
+      },
     });
     res.json(users);
   } catch (error) {

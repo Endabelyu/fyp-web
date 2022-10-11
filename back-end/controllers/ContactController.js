@@ -4,7 +4,7 @@ export const getContact = async (req, res) => {
   try {
     const response = await Contact.findOne({
       where: {
-        userId: req.params.id,
+        id: req.params.id,
       },
     });
     res.json(response);

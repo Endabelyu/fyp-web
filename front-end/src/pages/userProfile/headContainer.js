@@ -10,8 +10,11 @@ const HeadContainer = (props) => {
         <div className="flex gap-x-2">
           {/* <BsFillEyeSlashFill /> */}
           <MdEdit className="cursor-pointer" onClick={onClick} />
-          <MdRefresh className="cursor-pointer" onClick={project}/>
-         
+          {project ? (
+            <MdRefresh className="cursor-pointer" onClick={project} />
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </React.Fragment>

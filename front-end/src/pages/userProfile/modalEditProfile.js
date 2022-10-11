@@ -35,7 +35,7 @@ const ModalEditProfile = (props) => {
   }
 
   const updateUser = async(e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const formData = new FormData();
     

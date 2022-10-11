@@ -192,7 +192,7 @@ const UserProfile = () => {
                 src={image}
                 alt="andy"
               />
-              <MdEdit className="cursor-pointer" onClick={editPhotoClicked} />
+              <MdEdit className="cursor-pointer relative mt-[8rem]" onClick={editPhotoClicked} />
             </div>
             
             <button
@@ -218,17 +218,18 @@ const UserProfile = () => {
             project={getProject}
           />
           
-          <div className="flex flex-wrap gap-x-4 justify-between mt-16 min-h-[30rem]">
+          <div className="flex flex-wrap gap-x-9 justify-start mt-16 min-h-[30rem]">
           
           {projects.map((project, index)=>(
             <CardProjectProfile
-              id="1"
+              id={project.id}
               url={Image.websiteCartoon}
               title="project"
               name={project.name}
               image={project.image}
               visitLink={project.url}
               key={index}
+              project={getProject}
             />
           ))}
           </div>
@@ -241,8 +242,6 @@ const UserProfile = () => {
                 <button className='cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 min-w-[5rem]' onClick={()=>handleNext()}>Next</button >
               </div>
             </div>
-          
-          
         </section>
         {/* <section className="userSkill w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300  lg:w-[720px] ">
           <HeadContainer onClick={editProfileClicked} title="Tech Stack" />

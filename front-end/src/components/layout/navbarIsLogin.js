@@ -8,7 +8,7 @@ import { CgProfile } from 'react-icons/cg';
 import axios from 'axios';
 
 const NavbarisLogin = (props) => {
-  const {name} = props;
+  const {name, image} = props;
   const [toggle, setToggle] = useState(false);
   const profileClicked = () => {
     setToggle(!toggle);
@@ -44,8 +44,9 @@ const NavbarisLogin = (props) => {
           <div onClick={profileClicked}>
             <div className="flex gap-x-4 cursor-pointer ">
               <img
-                className="w-10 rounded-full"
-                src={Image.People}
+                className="w-10 rounded-full min-h-[2.5rem]"
+                src={!image ? "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  : image}
                 alt="user"
               />
               <p className="mt-3 text-base lg:text-sm">{name}</p>

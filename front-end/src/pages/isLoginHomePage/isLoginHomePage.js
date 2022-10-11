@@ -79,6 +79,10 @@ const IsLoginHomePage = () => {
     getProject();
   }
 
+  const handleLink = async(url) => {
+    window.open(`${url}`, "_blank");
+  }
+
   const axiosJwt = axios.create();
 
   axiosJwt.interceptors.request.use(
@@ -123,15 +127,21 @@ const IsLoginHomePage = () => {
                 <div className="group relative mx-4 ">
                   <div className="max-h-80 aspect-w-1 w-70 aspect-h-1 cursor-pointer overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-60">
                     <img
+                      onClick={()=>handleLink(project.url)}
                       src={`${project.image}`}
                       alt="Front of men&#039;s Basic Tee in black"
                       className="h-auto w-[80%] ml-3 lg:ml-5 object-center lg:h-auto lg:w-[80%] my-6 mx-6"
                     />
+                    
                   </div>
                   <div className="mt-4 lg:flex justify-between w-40  lg:w-full">
                     <span className="flex intems-center">
                       <img
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        
+                        src={!project.user.image ? 
+                          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          : project.user.image
+                        }
                         alt=""
                         className="h-12 w-12 flex-shrink-0 rounded-full"
                       />
@@ -140,7 +150,7 @@ const IsLoginHomePage = () => {
                       </span>
                     </span>
                     <span>
-                      <p className="text-[10px] text-white bg-blue-400 py-1 px-2 w-[5rem] lg:w-full mt-4 lg:mt-0 rounded-full lg:rounded-full">
+                      <p  className="text-[10px] text-white bg-blue-400 py-1 px-2 w-[5rem] lg:w-full mt-4 lg:mt-0 rounded-full lg:rounded-full">
                         {project.name}
                       </p>
                     </span>

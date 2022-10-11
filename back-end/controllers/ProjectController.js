@@ -212,3 +212,23 @@ export const uploadImage = async (req, res) => {
   });
 };
 
+export const deleteProject = async(req, res) => {
+  try {
+
+    const find = await Project.findOne({
+                    where:{
+                      id: req.params.id
+                    }
+                  });
+                  
+    if(find){
+      await find.destroy();
+      res.status(200).json({msg: "delete success"});
+    }
+
+    res.status(404).json({msg: "not found"});
+  } catch (error) {
+    console.log(error)
+  }
+}
+

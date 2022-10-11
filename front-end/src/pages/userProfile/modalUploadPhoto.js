@@ -35,8 +35,8 @@ const ModalUploadPhoto = (props) => {
   }
 
   const updatePhoto = async(e) => {
-    e.preventDefault();
-
+    // e.preventDefault();
+    
     const formData = new FormData();
     formData.append("image", image);
 

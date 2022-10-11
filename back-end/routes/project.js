@@ -1,6 +1,7 @@
 import express from 'express';
 import {
   createProject,
+  deleteProject,
   findProject,
   getProject,
   getProjectMain,
@@ -14,6 +15,7 @@ const router = express.Router();
 router.get('/', getProject);
 router.get('/have/:id',verifyToken, haveProject);
 router.get('/:id', findProject);
+router.delete('/:id', deleteProject);
 router.post('/image/:id', uploadImage);
 router.post('/create/:id', createProject);
 router.get('/project_page/:limit&:page', getProjectPage);

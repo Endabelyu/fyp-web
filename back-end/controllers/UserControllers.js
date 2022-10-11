@@ -1,5 +1,5 @@
 import db from '../config/Database.js';
-import { Users } from '../models/index.js';
+import { Users, Contact } from '../models/index.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import path from 'path';
@@ -16,9 +16,9 @@ export const getUsers = async (req, res) => {
 export const getUser = async (req, res) => {
   try {
     const users = await Users.findOne({
-      where:{
-        id:req.params.id
-      }
+      where: {
+        id: req.params.id,
+      },
     });
     res.json(users);
   } catch (error) {
@@ -57,7 +57,17 @@ export const Register = async (req, res) => {
       email: email,
       password: hasPassword,
     });
+
+    const contact = await Contact.create({
+      instagram: null,
+      github: null,
+      linkedin: null,
+      twitter: null,
+      userId: user.dataValues.id,
+    });
     res.json({ msg: 'register success' });
+    console.log(user.dataValues.id);
+    console.log(user);
   } catch (error) {
     console.log(error);
   }
@@ -140,29 +150,31 @@ export const Logout = async (req, res) => {
 
 export const UpdateUser = async (req, res) => {
   const userId = req.params.id;
-  const {name, email, bio, location } = req.body;
-    try {
-      await Users.update({
+  const { name, email, bio, location } = req.body;
+  try {
+    await Users.update(
+      {
         name: name,
         email: email,
-        bio:bio,
-        location:location,
+        bio: bio,
+        location: location,
       },
       {
         where: {
           id: userId,
         },
-      });
+      }
+    );
 
-      res.status(201).json({ msg: 'create project successfuly' });
-
-    } catch (error) {
-      res.status(404).json({ msg: 'datamu tidak berhasil diubah' });
-    }  
+    res.status(201).json({ msg: 'create project successfuly' });
+  } catch (error) {
+    res.status(404).json({ msg: 'datamu tidak berhasil diubah' });
+  }
 };
 
 export const UpdatePhoto = async (req, res) => {
-  if (req.files === null) return res.status(404).json({ msg: 'no file uploaded' });
+  if (req.files === null)
+    return res.status(404).json({ msg: 'no file uploaded' });
 
   const userId = req.params.id;
   const image = req.files.image;
@@ -181,21 +193,20 @@ export const UpdatePhoto = async (req, res) => {
   image.mv(`./public/images/${imageName}`, async (err) => {
     if (err) return res.status(500).json({ msg: err.message });
     try {
-      await Users.update({
-        image:urlImage,
-      },
-      {
-        where: {
-          id: userId,
+      await Users.update(
+        {
+          image: urlImage,
         },
-      });
+        {
+          where: {
+            id: userId,
+          },
+        }
+      );
 
       res.status(201).json({ msg: 'update photo success' });
-
     } catch (error) {
       res.status(404).json({ msg: 'datamu tidak berhasil diubah' });
     }
   });
-
-  
 };

@@ -29,6 +29,9 @@ const UserProfile = () => {
   const [image, setImage] = useState('');
   const [token, setToken] = useState('');
   const [expire, setExpire] = useState('');
+  const [github, setGithub] = useState('');
+  const [twitter, setTwitter] = useState('');
+  const [linkedin, setLinkedin] = useState('');
   const navigate = useNavigate();
 
   // -------------------------------------------
@@ -48,6 +51,7 @@ const UserProfile = () => {
   useEffect(() => {
     refreshToken();
     getProject();
+    getContact();
     const countPage = countProject / limitProject;
     setCountPage(Math.ceil(countPage));
   }, [userId, countProject, limitProject, pageProject]);
@@ -130,6 +134,14 @@ const UserProfile = () => {
     console.log('terpanggil');
   };
 
+  const getContact = async () => {
+    const response = await axios.get(`http://localhost:5000/contact/${userId}`);
+
+    setGithub(response.data.github);
+    setTwitter(response.data.twitter);
+    setLinkedin(response.data.linkedin);
+  };
+
   const editProfileClicked = () => {
     seteditProfile(!editProfile);
   };
@@ -142,7 +154,7 @@ const UserProfile = () => {
   const editContactClicked = () => {
     seteditContact(!editContact);
   };
-  // still under maintenance
+
   return (
     <React.Fragment>
       <main className="mt-20 relative pb-20  ">
@@ -174,7 +186,7 @@ const UserProfile = () => {
 
         {editContact ? (
           <div>
-            <ModalEditContact onClick={editContactClicked} />
+            <ModalEditContact onClick={editContactClicked} userId={userId} />
             <BackgroundModal onClick={editContactClicked} state={editContact} />
           </div>
         ) : (
@@ -288,15 +300,15 @@ const UserProfile = () => {
         </section> */}
 
         <section className="userContact w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300 lg:w-[720px]">
-          <HeadContainer onClick={editContact} title="My Contact" />
+          <HeadContainer onClick={editContactClicked} title="My Contact" />
           <div className="flex justify-around gap-x-6 mt-12">
-            <a href="/">
+            <a href={github}>
               <BsGithub className="text-[50px]" />
             </a>
-            <a href="/">
+            <a href={twitter}>
               <BsTwitter className="text-[50px]" />
             </a>
-            <a href="/">
+            <a href={linkedin}>
               <BsLinkedin className="text-[50px]" />
             </a>
           </div>

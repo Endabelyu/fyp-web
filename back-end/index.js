@@ -3,6 +3,8 @@ import db from './config/Database.js';
 import FileUpload from 'express-fileupload';
 import users from './routes/users.js';
 import project from './routes/project.js';
+import contact from './routes/contact.js';
+
 import dotenv from 'dotenv';
 import cookie from 'cookie-parser';
 import cors from 'cors';
@@ -25,4 +27,5 @@ app.use(express.static('public'));
 app.use(FileUpload());
 app.use(users);
 app.use('/project', project);
+app.use('/contact', contact);
 app.listen(5000, () => console.log('server running at port 5000'));

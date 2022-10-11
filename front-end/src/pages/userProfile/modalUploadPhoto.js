@@ -4,7 +4,7 @@ import { VscChromeClose } from 'react-icons/vsc';
 import InputContainer from './inputContainer';
 import axios from 'axios';
 
-const ModalEditProfile = (props) => {
+const ModalUploadPhoto = (props) => {
   const { onClick, userId, refresh } = props;
   const [user, setUser] = useState([]);
   const [name, setName] = useState('');
@@ -34,18 +34,14 @@ const ModalEditProfile = (props) => {
     }
   }
 
-  const updateUser = async(e) => {
+  const updatePhoto = async(e) => {
     // e.preventDefault();
-
-    const formData = new FormData();
     
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("bio", bio);
-    formData.append("location", location);
+    const formData = new FormData();
+    formData.append("image", image);
 
     try {
-        await axios.patch(`http://localhost:5000/user_update/${userId}`, formData );
+        await axios.patch(`http://localhost:5000/user_photo/${userId}`, formData );
         onClick();
         refresh();
     } catch (error) {
@@ -60,7 +56,7 @@ const ModalEditProfile = (props) => {
       <div className='w-full flex justify-center'>
       <section className="absolute bg-white top-[5rem] z-[3] w-full mx-auto shadow-lg overflow-y-scroll h-auto lg:w-[720px] ">
         <ul className="flex justify-between font-bold text-xl w-full p-4  bg-white top-0 left-0 shadow-lg sticky ">
-          <li>Edit Profile</li>
+          <li>Edit Photo Profile</li>
           <li className="flex text-xl font-bold ">
             <VscChromeClose className="cursor-pointer" onClick={onClick} />
           </li>
@@ -69,32 +65,18 @@ const ModalEditProfile = (props) => {
           <div className={`text-center mt-4 bg-red-500 w-1/2 rounded-full text-white ${!info ? 'hide' : ''}`}>{info}</div>
         </div>
         
-        <form className="px-4" onSubmit={updateUser}>
+        <form className="px-4" onSubmit={updatePhoto}>
         <div className='flex flex-wrap mb-4'>
-          <InputContainer
-            labelName="Name"
-            placeholder="input your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <InputContainer
-            labelName="Email"
-            placeholder="input your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <InputContainer
-            labelName="Bio"
-            placeholder="input your bio"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-          />
-          <InputContainer
-            labelName="Location"
-            placeholder="input your location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
+          
+          <div className="lg:ml-4 ml-4 mt-4 mr-2 w-full">
+            <label className='text-[12px] ml-4'>Photo Profile</label>
+            <input
+                className="border-2 border-blue-300 w-full px-4 py-2 rounded-full text-[11px]"
+                type="file"
+                placeholder=""
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+          </div>
         </div>
           <div className="sticky bottom-0 p-4 bg-white left-0">
               <Button
@@ -111,4 +93,4 @@ const ModalEditProfile = (props) => {
   );
 };
 
-export default ModalEditProfile;
+export default ModalUploadPhoto;

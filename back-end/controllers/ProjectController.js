@@ -43,6 +43,34 @@ export const getProjectPage = async (req, res) => {
   }
 };
 
+export const getProjectMain = async (req, res) => {
+  try {
+    const limit = parseInt(req.params.limit);
+    const page = parseInt(req.params.page);
+    const id = parseInt(req.params.id);
+    const offset = (page - 1) * limit;
+    const projects = await Project.findAndCountAll({
+      include: [
+        {
+          model: Users,
+          required: false,
+        }
+      ],
+      where: {
+        userId:id
+      },
+      limit: limit,
+      offset: offset,
+    });
+
+    if (projects) return res.status(200).json({ projects });
+
+    return res.status(404).json({ msg: 'user kosong' });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const haveProject = async (req, res) => {
   try {
     const response = await Project.findAll({
@@ -183,3 +211,24 @@ export const uploadImage = async (req, res) => {
     }
   });
 };
+
+export const deleteProject = async(req, res) => {
+  try {
+
+    const find = await Project.findOne({
+                    where:{
+                      id: req.params.id
+                    }
+                  });
+                  
+    if(find){
+      await find.destroy();
+      res.status(200).json({msg: "delete success"});
+    }
+
+    res.status(404).json({msg: "not found"});
+  } catch (error) {
+    console.log(error)
+  }
+}
+

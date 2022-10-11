@@ -12,17 +12,12 @@ const Navbar = (props) => {
   const [userId, setUserId] = useState('0');
   const [user, setUser] = useState('');
   const [name, setName] = useState('');
+  const [image, setImage] = useState('');
   const [token, setToken] = useState('');
-
-  const getUsers = async () => {
-    const response = await axios.get('http://localhost:5000/users');
-
-    setUsers(response.data);
-  };
 
   useEffect(()=>{
     refreshToken();
-  },[name]);
+  },[name, image]);
 
   const refreshToken = async () => {
     try {
@@ -31,6 +26,7 @@ const Navbar = (props) => {
       const decoded = jwt_decode(response.data.accessToken);
       setUserId(decoded.userId);
       setName(decoded.name);
+      setImage(decoded.image);
     } catch (error) {
       console.log(error);
     }
@@ -42,7 +38,7 @@ const Navbar = (props) => {
       <h1 className=" text-[#3371F2] text-4xl font-bold md:ml-2 lg:ml-14">
         fyp
       </h1>
-      {!name ? <NavbarNotLogin />  : <NavbarisLogin name={name} /> }
+      {!name ? <NavbarNotLogin />  : <NavbarisLogin name={name} image={image} /> }
     </nav>
   );
 };

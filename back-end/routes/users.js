@@ -7,13 +7,17 @@ import {
   Login,
   Logout,
   Register,
+  UpdatePhoto,
+  UpdateUser,
 } from '../controllers/userControllers.js';
 import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();
 
 router.get('/users', verifyToken, getUsers);
-router.get('/user/:id', verifyToken, getUser);
+router.get('/user/:id', getUser);
+router.patch('/user_update/:id', UpdateUser);
+router.patch('/user_photo/:id', UpdatePhoto);
 router.post('/users', Register);
 router.post('/login', Login);
 router.get('/token', refreshToken);

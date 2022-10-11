@@ -3,17 +3,14 @@ import { VscChromeClose } from 'react-icons/vsc';
 import InputContainer from './inputContainer';
 import Button from '../../components/layout/button';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
 
 const ModalEditProject = (props) => {
-  const { onClick, Project, userId } = props;
+  const {onClick, Project, userId } = props;
   const [projectName, setprojectName] = useState('');
   const [projectUrl, setprojectUrl] = useState('');
   const [image, setImage] = useState('');
   const [subImage, setSubImage] = useState('');
   const [info, setInfo] = useState('');
-
-  const navigate = useNavigate();
 
   
 
@@ -28,7 +25,6 @@ const ModalEditProject = (props) => {
     formData.append("subImage", subImage);
     try {
       await axios.post(`http://localhost:5000/project/create/${userId}`, formData);
-      navigate("/userProfile");
       onClick();
       Project();
     } catch (error) {

@@ -97,20 +97,8 @@ const Home = () => {
             <h1 className=" text-xl  text-center mb-16 md:text-4xl">
               Check out this various project
             </h1>
-            <div className="flex justify-between flex-wrap md:gap-x-4 lg:gap-x-16 w-3/4 mx-auto">
-              {Images.map((data) => {
-                const { id, url, title, thumbnailUrl, name } = data;
-
-                return (
-                  <CardProject
-                    id={id}
-                    url={url}
-                    title={title}
-                    thumbnailUrl={thumbnailUrl}
-                    name={name}
-                  />
-                );
-              })}
+            <div className="flex justify-start flex-wrap md:gap-x-4 lg:gap-x-16 w-3/4 mx-auto">
+              <CardProject />
             </div>
           </div>
         </section>

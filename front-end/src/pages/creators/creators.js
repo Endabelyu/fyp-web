@@ -14,11 +14,7 @@ const Creators = () => {
           <span class="creators ml-3 stroke text-white">Creators</span>
         </h1>
         <div className="mx-auto flex gap-y-10 flex-wrap w-[90%] bg-white drop-shadow-xl p-10">
-          {data.map((creator) => {
-            const { name, image, quote } = creator;
-
-            return <Card name={name} image={image} quote={quote} />;
-          })}
+            <Card />
         </div>
       </div>
     </React.Fragment>

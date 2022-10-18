@@ -9,23 +9,7 @@ import Button from '../../components/layout/button';
 
 const Home = () => {
   const { websiteCartoon } = Image;
-  const [Images, setImages] = useState([]);
 
-  const req = () => {
-    axios({
-      method: 'GET',
-      url: `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=8`,
-    })
-      .then((result) => {
-        const data = result.data;
-        setImages(data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    req();
-  }, []);
 
   return (
     <React.Fragment>
@@ -97,7 +81,7 @@ const Home = () => {
             <h1 className=" text-xl  text-center mb-16 md:text-4xl">
               Check out this various project
             </h1>
-            <div className="flex justify-start flex-wrap md:gap-x-4 lg:gap-x-16 w-3/4 mx-auto">
+            <div className="">
               <CardProject />
             </div>
           </div>

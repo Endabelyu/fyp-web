@@ -211,8 +211,9 @@ const UserProfile = () => {
             <div className="w-40 flex justify-end">
               <img
                 className="min-h-[9rem] w-36 rounded-full border-4 border-slate-400"
-                src={image}
-                alt="andy"
+                src={!image ? "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                : image}
+                alt={name}
               />
               <MdEdit
                 className="cursor-pointer relative mt-[8rem]"
@@ -285,19 +286,6 @@ const UserProfile = () => {
             </div>
           </div>
         </section>
-        {/* <section className="userSkill w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300  lg:w-[720px] ">
-          <HeadContainer onClick={editProfileClicked} title="Tech Stack" />
-          <div className="flex flex-col  lg:flex-row justify-start mt-16">
-            <div className=" w-2/4">
-              <SkillsCategory category="Javascript Library" />
-              <SkillsCategory category="Javascript Library" />
-            </div>
-            <div className=" w-2/4 lg:border-l-2 lg:border-slate-400 lg:px-8">
-              <SkillsCategory category="Javascript Library" />
-              <SkillsCategory category="Javascript Library" />
-            </div>
-          </div>
-        </section> */}
 
         <section className="userContact w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300 lg:w-[720px]">
           <HeadContainer onClick={editContactClicked} title="My Contact" />

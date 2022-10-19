@@ -8,13 +8,13 @@ const Creators = () => {
 
   return (
     <React.Fragment>
-      <div className="mt-32 ">
+      <div className="mt-32 min-h-[36rem]">
         <h1 class="title max-w-xl mb-3 lg:mb-10 text-3xl text-center font-bold  mx-auto">
           This is our Incredible
           <span class="creators ml-3 stroke text-white">Creators</span>
         </h1>
-        <div className="mx-auto flex gap-y-10 flex-wrap w-[90%] bg-white drop-shadow-xl p-10">
-            <Card />
+        <div className='flex justify-center'>
+          <Card />
         </div>
       </div>
     </React.Fragment>

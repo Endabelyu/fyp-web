@@ -9,6 +9,7 @@ const ModaleditContact = (props) => {
   const [github, setGithub] = useState('');
   const [twitter, setTwitter] = useState('');
   const [linkedin, setLinkedin] = useState('');
+  const [instagram, setInstagram] = useState('');
   const [id, setId] = useState('');
 
   const getContact = async () => {
@@ -18,6 +19,7 @@ const ModaleditContact = (props) => {
     setGithub(response.data.github);
     setTwitter(response.data.twitter);
     setLinkedin(response.data.linkedin);
+    setInstagram(response.data.instagram);
   };
   // getContact();
 
@@ -33,6 +35,7 @@ const ModaleditContact = (props) => {
     formData.append('github', github);
     formData.append('twitter', twitter);
     formData.append('linkedin', linkedin);
+    formData.append('instagram', instagram);
 
     try {
       await axios.patch(`http://localhost:5000/contact/${id}`, formData);
@@ -50,33 +53,43 @@ const ModaleditContact = (props) => {
             <VscChromeClose className="cursor-pointer" onClick={onClick} />
           </li>
         </ul>
+        
         <form className="px-4 mt-6 " onSubmit={updateContact}>
-          <InputContainer
-            labelName="Github"
-            placeholder="Input your github link"
-            value={github}
-            onChange={(e) => setGithub(e.target.value)}
-          />
-          <InputContainer
-            labelName="LinkedIn"
-            placeholder="Input your linkedin link"
-            value={linkedin}
-            onChange={(e) => setLinkedin(e.target.value)}
-          />
-          <InputContainer
-            labelName="Twitter"
-            placeholder="Input your twitter link"
-            value={twitter}
-            onChange={(e) => setTwitter(e.target.value)}
-          />
-
-          <div className="sticky bottom-0 p-4 bg-white left-0">
-            <Button
-              className="w-full rounded-lg p-2   bg-blue-500 text-white font-normal"
-              name="Save"
+          <div className='flex flex-wrap mb-4'>
+            <InputContainer
+              labelName="Github"
+              placeholder="Input your github link"
+              value={github}
+              onChange={(e) => setGithub(e.target.value)}
             />
-          </div>
+            <InputContainer
+              labelName="LinkedIn"
+              placeholder="Input your linkedin link"
+              value={linkedin}
+              onChange={(e) => setLinkedin(e.target.value)}
+            />
+            <InputContainer
+              labelName="Twitter"
+              placeholder="Input your twitter link"
+              value={twitter}
+              onChange={(e) => setTwitter(e.target.value)}
+            />
+            <InputContainer
+              labelName="Instagram"
+              placeholder="Input your instagram link"
+              value={instagram}
+              onChange={(e) => setInstagram(e.target.value)}
+            />
+            </div>
+            <div className="sticky bottom-0 p-4 bg-white left-0">
+              <Button
+                className="w-full rounded-lg p-2   bg-blue-500 text-white font-normal"
+                name="Save"
+              />
+            </div>
         </form>
+        
+        
       </section>
     </React.Fragment>
   );

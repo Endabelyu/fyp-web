@@ -19,7 +19,7 @@ const IsLoginHomePage = () => {
   const [pageProject, setPageProject] = useState(1);
   const [countPage, setCountPage] = useState();
 
-  const link = `http://127.0.0.1:5000/project/project_page/${limitProject}&${pageProject}`;
+  const link = ``;
 
   const rows = [];
   for (var i = 1; i <= countPage; i++) {
@@ -101,7 +101,7 @@ const IsLoginHomePage = () => {
   );
 
   const getProject = async () => {
-    const response = await axios.get(`${link}`);
+    const response = await axios.get(`http://127.0.0.1:5000/project/project_page/${limitProject}&${pageProject}`);
 
     console.log(pageProject, 'pageProject');
     setCountProject(response.data.projects.count);

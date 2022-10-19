@@ -1,7 +1,7 @@
-import Contact from './ContactModel.js';
-import Users from './UserModel.js';
-import Project from './ProjectModel.js';
-import Image from './ImageModel.js';
+import Contact from './contactModel.js';
+import Users from './cserModel.js';
+import Project from './crojectModel.js';
+import Image from './imageModel.js';
 
 // relation user with project
 Project.belongsTo(Users);

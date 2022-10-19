@@ -1,6 +1,6 @@
 import Contact from './contactModel.js';
-import Users from './cserModel.js';
-import Project from './crojectModel.js';
+import Users from './userModel.js';
+import Project from './projectModel.js';
 import Image from './imageModel.js';
 
 // relation user with project

@@ -7,6 +7,10 @@ const Contact = () => {
     const [message, setMessage] = useState('');
     const [msg, setMsg] = useState('');
 
+    useEffect(()=>{
+        
+    },[name, email, message]);
+
     const submitMessage = async(e) => {
         e.preventDefault();
 
@@ -18,10 +22,17 @@ const Contact = () => {
 
         try {
             const submit = await axios.post(`http://127.0.0.1:5000/submitMessage`, formData);
+            resetForm();
             setMsg(submit.data.msg);
         } catch (error) {
             console.log(error);
         }
+    }
+
+    const resetForm = () => {
+        setName('');
+        setEmail('');
+        setMessage('');
     }
 
     return (
@@ -39,6 +50,7 @@ const Contact = () => {
                     type="text"
                     className="w-full mt-2 p-4 outline-none border-none rounded-lg"
                     placeHolder="Enter your name"
+                    value={name}
                     onChange={(e)=>setName(e.target.value)}
                 />
                 </div>
@@ -48,6 +60,7 @@ const Contact = () => {
                     type="text"
                     className="w-full mt-2 p-4 outline-none border-none rounded-lg"
                     placeHolder="Enter your email"
+                    value={email}
                     onChange={(e)=>setEmail(e.target.value)}
                 />
                 </div>
@@ -56,6 +69,7 @@ const Contact = () => {
                 <textarea
                     className="w-full h-36 mt-2 p-4 outline-none border-none rounded-lg"
                     placeholder="Type message..."
+                    value={message}
                     onChange={(e)=>setMessage(e.target.value)}
                 ></textarea>
                 </div>

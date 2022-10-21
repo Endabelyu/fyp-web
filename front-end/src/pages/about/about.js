@@ -1,8 +1,30 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { BsGithub } from 'react-icons/bs';
 import Button from '../../components/layout/button';
+import axios from 'axios';
+
 
 const About = () => {
+  const [users, setUsers] = useState('');
+  const [projects, setProjects] = useState([]);
+
+  useEffect(()=>{
+    getUsers();
+    getProjects();
+  },[])
+
+  const getUsers = async() => {
+    const response = await axios.get(`http://127.0.0.1:5000/all_user`);
+    const count = response.data.length;
+    setUsers(count);
+  }
+
+  const getProjects = async() => {
+    const response = await axios.get(`http://127.0.0.1:5000/project`);
+    const count = response.data.length;
+    setProjects(count);
+  }
+
   return (
     <React.Fragment>
       <main className="mt-20">
@@ -27,11 +49,11 @@ const About = () => {
           </h1>
           <ul className="flex flex-col gap-y-4 justify-evenly mt-10 text-2xl  text-slate-600 md:flex-row md:gap-x-4 lg:gap-x-0 md:gap-y-0 ">
             <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">
-              <p className="font-bold">131</p>
+              <p className="font-bold">{users}</p>
               <p>Developers</p>
             </li>
             <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">
-              <p className="font-bold">260</p>
+              <p className="font-bold">{projects}</p>
               <p>projects</p>
             </li>
             <li className="bg-white rounded-lg text-center px-16 lg:w-[300px] py-10 drop-shadow-md">

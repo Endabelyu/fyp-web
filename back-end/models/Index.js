@@ -2,6 +2,7 @@ import Contact from './contactModel.js';
 import Users from './userModel.js';
 import Project from './projectModel.js';
 import Image from './imageModel.js';
+import ContactUs from './ContactUsModel.js';
 
 // relation user with project
 Project.belongsTo(Users);
@@ -24,4 +25,4 @@ Project.hasMany(Image, {
   foreignKey: 'projectId',
 });
 
-export { Users, Image, Project, Contact };
+export { Users, Image, Project, Contact, ContactUs };

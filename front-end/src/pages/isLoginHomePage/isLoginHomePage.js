@@ -74,8 +74,8 @@ const IsLoginHomePage = () => {
     getProject();
   };
 
-  const handleLink = async (url) => {
-    window.open(`${url}`, '_blank');
+  const handleLink = async (id) => {
+    navigate("../view_project/"+id);
   };
 
   const axiosJwt = axios.create();
@@ -109,19 +109,19 @@ const IsLoginHomePage = () => {
 
   return (
     <React.Fragment>
-      <div className="bg-white min-h-screen">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 w-full text-right px-5">
+      <div className="bg-white min-h-[42rem]">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 mt-6">
+          {/* <div className="mt-6 w-full text-right px-5">
             <button className="text-blue-500 border-2 border-blue-500 bg-white hover:bg-blue-300 py-1 px-6 rounded-full ">
               Filter
             </button>
-          </div>
-          <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 min-h-[40rem]">
+          </div> */}
+          <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 min-h-[20rem]">
             {projects.map((project, index) => (
               <div className="group relative mx-4 ">
                 <div className="max-h-80 aspect-w-1 w-70 aspect-h-1 cursor-pointer overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-60">
                   <img
-                    onClick={() => handleLink(project.url)}
+                    onClick={() => handleLink(project.id)}
                     src={`${project.image}`}
                     alt="Front of men&#039;s Basic Tee in black"
                     className="h-auto w-[80%] ml-3 lg:ml-5 object-center lg:h-auto lg:w-[80%] my-6 mx-6"

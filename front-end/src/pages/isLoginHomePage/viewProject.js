@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import { MdEdit, MdRefresh } from 'react-icons/md';
+import { MdEdit, MdDelete } from 'react-icons/md';
 import ModalUpload from './modalUpload';
+
 
 
 const ViewProject = () => {
@@ -35,6 +36,15 @@ const ViewProject = () => {
         setModal(!modal)
     }
 
+    const deleteImage = async(id_image) => {
+        try {
+            await axios.delete(`http://127.0.0.1:5000/project/image/${id_image}`);
+            getProject();
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='relative'>
             <div className={`${modal ? 'absolute cover bg-slate-900/[.6] z-[3] w-full h-full' : ''}`}>
@@ -43,7 +53,7 @@ const ViewProject = () => {
             <div className={`min-h-[45rem] pt-[10rem]`}>
                 <div className=''>
                     <div className='absolute w-1/2 flex justify-center mt-10'>
-                    <ModalUpload block={modal} onClick={clickModal} />
+                    <ModalUpload block={modal} onClick={clickModal} id={id} refresh={getProject} />
                     </div>
                     <div className='mx-[20rem]'>
                         <div className='relative mb-0'>
@@ -70,11 +80,13 @@ const ViewProject = () => {
                             </div>
                             <div className='flex justify-start flex-wrap mt-6 mb-6'>
                                 {images.map((image, index)=>(
-                                    <img
-                                    src={`${image.path}`}
-                                    alt="#"
-                                    className="w-[23rem] mx-3 my-4"
-                                />
+                                    <div className='relative'>
+                                        <img src={`${image.path}`}
+                                            alt="#"
+                                            className="w-[23rem] mx-3 my-6"
+                                        />
+                                        <MdDelete className='absolute right-0 bottom-0 cursor-pointer hover:text-red-500' onClick={()=>deleteImage(image.id)}  />
+                                    </div>
                                 ))}
                             </div>
                         </div>

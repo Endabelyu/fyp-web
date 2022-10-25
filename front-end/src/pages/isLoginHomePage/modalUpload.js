@@ -2,10 +2,27 @@ import React, {useState} from 'react'
 import InputContainer from '../userProfile/inputContainer';
 import { VscChromeClose } from 'react-icons/vsc';
 import Button from '../../components/layout/button';
+import axios from 'axios';
 
 const ModalUpload = (props) => {
-    const { block, onClick } = props;
+    const { block, onClick, id, refresh } = props;
     const [info, setInfo] = useState(false);
+    const [image, setImage] = useState('');
+
+    const submitImage = async(e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append('file', image);
+        try {
+            await axios.patch(`http://127.0.0.1:5000/project/image/${id}`, formData);
+            onClick();
+            refresh();
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <React.Fragment>
@@ -20,13 +37,12 @@ const ModalUpload = (props) => {
             <div className='w-full flex justify-center'>
             <div className={`text-center mt-4 bg-red-500 w-1/2 rounded-full text-white`}>{info}</div>
             </div>
-            <form className="px-4">
+            <form className="px-4" onSubmit={submitImage}>
             <div className='flex flex-wrap my-4 mx-4'>
                 <input
                     className="border-2 border-blue-300 w-full px-4 py-2 rounded-full text-[11px]"
                     type="file"
-                    placeholder=""
-                    onChange=""
+                    onChange={(e) => setImage(e.target.files[0])}
                   />
             </div>
             <div className="sticky bottom-0 p-4 bg-white left-0">

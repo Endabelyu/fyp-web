@@ -180,8 +180,7 @@ export const createProject = async (req, res) => {
 };
 
 export const uploadImage = async (req, res) => {
-  if (req.files === null)
-    return res.status(404).json({ msg: 'no file uploaded' });
+  if (req.files === null) return res.status(404).json({ msg: 'no file uploaded' });
   const projectId = req.params.id;
   const file = req.files.file;
   const sizeFile = file.data.length;
@@ -229,6 +228,23 @@ export const deleteProject = async(req, res) => {
     res.status(404).json({msg: "not found"});
   } catch (error) {
     console.log(error)
+  }
+}
+
+export const deleteImage = async(req, res) => {
+  try {
+    const find = await Image.findOne({
+      where:{
+        id: req.params.id
+      }
+    });
+    if(find){
+      await find.destroy();
+      res.status(200).json({msg: "delete success"});
+    }
+    res.status(404).json({msg: "not found"});  
+  } catch (error) {
+    console.log(error);
   }
 }
 

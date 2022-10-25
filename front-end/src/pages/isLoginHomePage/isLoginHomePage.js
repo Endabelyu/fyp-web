@@ -19,8 +19,6 @@ const IsLoginHomePage = () => {
   const [pageProject, setPageProject] = useState(1);
   const [countPage, setCountPage] = useState();
 
-  const link = ``;
-
   const rows = [];
   for (var i = 1; i <= countPage; i++) {
     rows.push(i);

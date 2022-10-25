@@ -38,8 +38,8 @@ const CardProject = (props) => {
     setCountProject(count);
   }
 
-  const handleClick = (url) => {
-    window.open(url,'_blank')
+  const handleClick = (id) => {
+    navigate("view_project/"+id);
   }
 
   const handleClickRow = (row) => {
@@ -76,7 +76,7 @@ const CardProject = (props) => {
                 className=""
                 src={project.image}
                 alt={project.name}
-                onClick={()=>handleClick(project.url)}
+                onClick={()=>handleClick(project.id)}
               />
             </div>
             

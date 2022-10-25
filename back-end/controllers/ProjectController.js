@@ -232,3 +232,17 @@ export const deleteProject = async(req, res) => {
   }
 }
 
+export const getImage = async(req,res) => {
+  try {
+    const id = req.params.id;
+    const image = await Image.findAll({
+      where:{
+        projectId:id
+      }
+    })
+    res.json(image);
+  } catch (error) {
+    console.log(error)
+  }
+}
+

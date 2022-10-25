@@ -3,6 +3,7 @@ import {
   createProject,
   deleteProject,
   findProject,
+  getImage,
   getProject,
   getProjectMain,
   getProjectPage,
@@ -17,6 +18,7 @@ router.get('/have/:id',verifyToken, haveProject);
 router.get('/:id', findProject);
 router.delete('/:id', deleteProject);
 router.post('/image/:id', uploadImage);
+router.get('/image/:id', getImage);
 router.post('/create/:id', createProject);
 router.get('/project_page/:limit&:page', getProjectPage);
 router.get('/project_main/:limit&:page&:id', getProjectMain);

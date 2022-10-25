@@ -10,6 +10,7 @@ import Participate from './pages/participate/participate';
 import UserProfile from './pages/userProfile/userProfile';
 import IsLoginHomePage from './pages/isLoginHomePage/isLoginHomePage';
 import Navbar from './components/layout/navbarContainer';
+import ViewProject from './pages/isLoginHomePage/viewProject';
 
 function App() {
   return (
@@ -56,6 +57,11 @@ function App() {
           <Route exact path="/home_login" element={
             <>
               <IsLoginHomePage />
+            </>
+          } />
+          <Route exact path="/view_project/:id" element={
+            <>
+              <ViewProject />
             </>
           } />
         </Routes>

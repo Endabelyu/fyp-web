@@ -1,12 +1,13 @@
 import React from 'react';
 import { FiBook } from 'react-icons/fi';
 import { BsLink45Deg } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdDelete, MdRefresh } from 'react-icons/md';
 import axios from 'axios';
 
 const CardProjectProfile = (props) => {
   const { id, url, title, name, image, visitLink, project } = props;
+  const navigate = useNavigate();
 
   const handleDelete = async() => {
     await axios.delete(`http://localhost:5000/project/${id}`);
@@ -15,6 +16,10 @@ const CardProjectProfile = (props) => {
 
   const handleLink = async(visitLink) => {
     window.open(`${visitLink}`, "_blank");
+  }
+
+  const viewProject = (id) => {
+    navigate("../view_project/"+id);
   }
 
   return (
@@ -32,11 +37,11 @@ const CardProjectProfile = (props) => {
         <div className="userData px-6 ">
           <div className="flex gap-x-2 cursor-pointer mb-2 ">
             <FiBook />
-            <p className="text-sm text-blue-500 ">{name}</p>
+            <p className="text-sm text-blue-500 " onClick={()=>viewProject(id)}>{name}</p>
           </div>
           <div className="flex gap-x-2 cursor-pointer w-[20rem] ">
             <BsLink45Deg />
-            <p onClick={()=>handleLink(visitLink)} className="lg:text-sm text-xs text-blue-700"> Visit Project </p>
+            <p onClick={()=>handleLink(visitLink)} className="lg:text-sm text-xs text-blue-700">Visit Project</p>
           </div>
         </div>
       </div>

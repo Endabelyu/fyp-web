@@ -106,7 +106,6 @@ const ModalEditProfile = (props) => {
         </form>
       </section>
       </div>
-      
     </React.Fragment>
   );
 };

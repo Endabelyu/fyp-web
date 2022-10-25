@@ -105,7 +105,7 @@ export const findProject = async (req, res) => {
 
 export const createProject = async (req, res) => {
   if (req.files === null)
-    return res.status(404).json({ msg: 'no file uploaded image' });
+    return res.status(404).json({ msg: 'no file uploaded' });
 
   const { name, url } = req.body;
 

@@ -6,11 +6,11 @@ import axios from 'axios';
 
 const ModaleditContact = (props) => {
   const { onClick, userId } = props;
-  const [github, setGithub] = useState('');
-  const [twitter, setTwitter] = useState('');
-  const [linkedin, setLinkedin] = useState('');
-  const [instagram, setInstagram] = useState('');
-  const [id, setId] = useState('');
+  const [github, setGithub] = useState();
+  const [twitter, setTwitter] = useState();
+  const [linkedin, setLinkedin] = useState();
+  const [instagram, setInstagram] = useState();
+  const [id, setId] = useState();
 
   const getContact = async () => {
     const response = await axios.get(`http://localhost:5000/contact/${userId}`);

@@ -75,7 +75,7 @@ const IsLoginHomePage = () => {
   };
 
   const handleLink = async (id) => {
-    navigate("../view_project/"+id);
+    navigate("../view_project_out/"+id);
   };
 
   const axiosJwt = axios.create();
@@ -151,33 +151,35 @@ const IsLoginHomePage = () => {
               </div>
             ))}
           </div>
-          <div className="w-full flex justify-center">
-            <div className="flex justify-between w-[20rem] mt-10  px-6 py-1 text-white">
-              <button
-                className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 "
-                onClick={() => handlePreview()}
-              >
-                Preview
-              </button>
-              {rows.map((row, index) => (
+          {!countPage ? '' :
+            <div className="w-full flex justify-center">
+              <div className="flex justify-between w-[20rem] mt-10  px-6 py-1 text-white">
                 <button
-                  key={index}
-                  className={`cursor-pointer hover:bg-blue-500 ${
-                    row == pageProject ? 'bg-blue-600' : 'bg-blue-300'
-                  } px-3`}
-                  onClick={() => handleClick(row)}
+                  className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 "
+                  onClick={() => handlePreview()}
                 >
-                  {row}
+                  Preview
                 </button>
-              ))}
-              <button
-                className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 min-w-[5rem]"
-                onClick={() => handleNext()}
-              >
-                Next
-              </button>
+                {rows.map((row, index) => (
+                  <button
+                    key={index}
+                    className={`cursor-pointer hover:bg-blue-500 ${
+                      row == pageProject ? 'bg-blue-600' : 'bg-blue-300'
+                    } px-3`}
+                    onClick={() => handleClick(row)}
+                  >
+                    {row}
+                  </button>
+                ))}
+                <button
+                  className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 min-w-[5rem]"
+                  onClick={() => handleNext()}
+                >
+                  Next
+                </button>
+              </div>
             </div>
-          </div>
+          }
         </div>
       </div>
     </React.Fragment>

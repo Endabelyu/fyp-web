@@ -39,7 +39,7 @@ const CardProject = (props) => {
   }
 
   const handleClick = (id) => {
-    navigate("view_project/"+id);
+    navigate("view_project_out/"+id);
   }
 
   const handleClickRow = (row) => {

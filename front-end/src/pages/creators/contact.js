@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsInstagram, BsTwitter, BsLinkedin } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
 const Contact = (props) => {
@@ -28,6 +28,7 @@ const Contact = (props) => {
             {!contact.twitter ? '' : <BsTwitter className='cursor-pointer' onClick={()=>handleClick(contact.twitter)} />}
             {!contact.instagram ? '' : <BsInstagram className='cursor-pointer' onClick={()=>handleClick(contact.instagram)}/>}
             {!contact.github ? '' : <BsGithub className='cursor-pointer' onClick={()=>handleClick(contact.github)} />}
+            {!contact.linkedin ? '' : <BsLinkedin className='cursor-pointer' onClick={()=>handleClick(contact.linkedin)} />}
         </ul>
     )
 }

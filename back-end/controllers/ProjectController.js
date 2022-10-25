@@ -105,12 +105,14 @@ export const findProject = async (req, res) => {
 
 export const createProject = async (req, res) => {
   if (req.files === null)
-    return res.status(404).json({ msg: 'no file uploaded' });
+    return res.status(404).json({ msg: 'no file uploaded image' });
 
   const { name, url } = req.body;
 
   const userId = req.params.id;
+
   const image = req.files.image;
+  console.log(image);
   const sizeImage = image.data.length;
   const ext = path.extname(image.name);
   const imageName = image.md5 + ext;
@@ -120,9 +122,7 @@ export const createProject = async (req, res) => {
   const sizeSubImage = subImage.data.length;
   const extSubImage = path.extname(subImage.name);
   const subImageName = subImage.md5 + extSubImage;
-  const urlSubImage = `${req.protocol}://${req.get(
-    'host'
-  )}/images/${subImageName}`;
+  const urlSubImage = `${req.protocol}://${req.get('host')}/images/${subImageName}`;
 
   const allowedType = ['.png', '.jpg', 'jpeg'];
 

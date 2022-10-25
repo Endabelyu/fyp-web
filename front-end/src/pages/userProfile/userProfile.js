@@ -3,7 +3,7 @@ import Image from '../../assets/srcImg/srcImg';
 import CardProjectProfile from './cardProjectProfile';
 import HeadContainer from './headContainer';
 // import SkillsCategory from './skillsCategory';
-import { BsGithub, BsTwitter, BsLinkedin } from 'react-icons/bs';
+
 import ModalEditProfile from './modalEditProfile';
 import ModalEditProject from './modalEditProject';
 import ModalEditContact from './modalEditContact';
@@ -13,6 +13,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { MdEdit, MdRefresh } from 'react-icons/md';
+import UserContact from './userContact';
 
 const UserProfile = () => {
   const [editProfile, seteditProfile] = useState(false);
@@ -290,20 +291,7 @@ const UserProfile = () => {
           }
         </section>
 
-        <section className="userContact w-full h-auto mx-auto px-6 py-10 border-t-2 border-slate-300 lg:w-[720px]">
-          <HeadContainer onClick={editContactClicked} title="My Contact" />
-          <div className="flex justify-around gap-x-6 mt-12">
-            <a href={github}>
-              <BsGithub className="text-[50px]" />
-            </a>
-            <a href={twitter}>
-              <BsTwitter className="text-[50px]" />
-            </a>
-            <a href={linkedin}>
-              <BsLinkedin className="text-[50px]" />
-            </a>
-          </div>
-        </section>
+        <UserContact editContactClicked={editContactClicked} userId={userId} />
       </main>
     </React.Fragment>
   );

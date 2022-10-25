@@ -50,6 +50,7 @@ const ModalEditProject = (props) => {
                 placeholder="Project Name"
                 value={projectName}
                 onChange={(e) => setprojectName(e.target.value)}
+                required="required"
               />
               <InputContainer
                 labelName="Url"
@@ -64,6 +65,7 @@ const ModalEditProject = (props) => {
                     type="file"
                     placeholder=""
                     onChange={(e) => setImage(e.target.files[0])}
+                    required
                   />
               </div>
               <div className="lg:ml-2 ml-4 mt-4 mr-2 lg:w-[46%] w-full">
@@ -73,6 +75,7 @@ const ModalEditProject = (props) => {
                     type="file"
                     placeholder=""
                     onChange={(e) => setSubImage(e.target.files[0])}
+                    required
                   />
               </div>
             </div>

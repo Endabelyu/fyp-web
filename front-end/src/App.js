@@ -11,6 +11,7 @@ import UserProfile from './pages/userProfile/userProfile';
 import IsLoginHomePage from './pages/isLoginHomePage/isLoginHomePage';
 import Navbar from './components/layout/navbarContainer';
 import ViewProject from './pages/isLoginHomePage/viewProject';
+import ViewProjectOut from './pages/isLoginHomePage/viewProjectOut';
 
 function App() {
   return (
@@ -62,6 +63,11 @@ function App() {
           <Route exact path="/view_project/:id" element={
             <>
               <ViewProject />
+            </>
+          } />
+          <Route exact path="/view_project_out/:id" element={
+            <>
+              <ViewProjectOut />
             </>
           } />
         </Routes>

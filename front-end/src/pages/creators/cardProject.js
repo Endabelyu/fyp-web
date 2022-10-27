@@ -1,0 +1,46 @@
+import React from 'react';
+import { FiBook } from 'react-icons/fi';
+import { BsLink45Deg } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdDelete, MdRefresh } from 'react-icons/md';
+import axios from 'axios';
+
+const CardProject = (props) => {
+  const { id, url, title, name, image, visitLink, project } = props;
+  const navigate = useNavigate();
+
+  const handleLink = async(visitLink) => {
+    window.open(`${visitLink}`, "_blank");
+  }
+
+  const viewProject = (id) => {
+    navigate("../view_project_out/"+id);
+  }
+
+  return (
+    <React.Fragment>
+      <div className="mb-10 rounder-lg lg:mx-4 mx-0 w-[40%] lg:w-[25%]" >
+        <div className='mb-4'>
+          <img
+            className=" rounded-lg mb-2 md:w-auto lg:min-h-[150px] md:max-h-[150px] lg:w-auto"
+            src={image}
+            alt={title}
+          />
+        </div>
+        
+        <div className="userData px-6 ">
+          <div className="flex gap-x-2 cursor-pointer mb-2 ">
+            <FiBook />
+            <p className="text-sm text-blue-500 " onClick={()=>viewProject(id)}>{name}</p>
+          </div>
+          <div className="flex gap-x-2 cursor-pointer w-[20rem] ">
+            <BsLink45Deg />
+            <p onClick={()=>handleLink(visitLink)} className="lg:text-sm text-xs text-blue-700">Visit Project</p>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
+
+export default CardProject;

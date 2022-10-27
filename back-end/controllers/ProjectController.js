@@ -211,6 +211,47 @@ export const uploadImage = async (req, res) => {
   });
 };
 
+export const uploadImagePrograme = async (req, res) => {
+  if (req.files === null) return res.status(404).json({ msg: 'no file uploaded' });
+  const file = req.files.file;
+  const sizeFile = file.data.length;
+  const ext = path.extname(file.name);
+  const fileName = file.md5 + ext;
+  const urlImage = `${req.protocol}://${req.get('host')}/images/${fileName}`;
+  const allowedType = ['.png', '.jpg', 'jpeg'];
+
+  if (!allowedType.includes(ext.toLowerCase()))
+    return res.status(422).json({ msg: 'invaled image' });
+  if (sizeFile > 5000000)
+    return res.status(422).json({ msg: 'image must be less than 5 Mb' });
+
+  file.mv(`./public/images/${fileName}`, async (err) => {
+    if (err) return res.status(500).json({ msg: err.message });
+
+    try {
+      // await Image.create({
+      //   name: fileName,
+      //   path: urlImage,
+      //   projectId: projectId,
+      // });
+      await Project.update(
+              {
+                image:urlImage
+              },
+              {
+                where:{
+                  id: req.params.id
+                }
+              }
+            );
+
+      res.status(201).json({ msg: 'Project created success...' });
+    } catch (error) {
+      console.log(error.message);
+    }
+  });
+};
+
 export const deleteProject = async(req, res) => {
   try {
 

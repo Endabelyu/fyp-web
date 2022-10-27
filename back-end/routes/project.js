@@ -10,14 +10,17 @@ import {
   getProjectPage,
   haveProject,
   uploadImage,
+  uploadImagePrograme,
 } from '../controllers/projectController.js';
 import { verifyToken } from '../middleware/verifyToken.js';
 const router = express.Router();
 
 router.get('/', getProject);
+router.get('/main/:id', haveProject);
 router.get('/have/:id',verifyToken, haveProject);
 router.get('/:id', findProject);
 router.delete('/:id', deleteProject);
+router.patch('/image_programe/:id', uploadImagePrograme);
 router.patch('/image/:id', uploadImage);
 router.delete('/image/:id', deleteImage);
 router.get('/image/:id', getImage); 

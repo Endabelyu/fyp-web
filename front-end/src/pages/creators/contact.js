@@ -24,12 +24,12 @@ const Contact = (props) => {
     }
     
     return (
-        <ul className="socmed flex justify-between p-4">
+        <div className="socmed flex justify-between w-full">
             {!contact.twitter ? '' : <BsTwitter className='cursor-pointer' onClick={()=>handleClick(contact.twitter)} />}
             {!contact.instagram ? '' : <BsInstagram className='cursor-pointer' onClick={()=>handleClick(contact.instagram)}/>}
             {!contact.github ? '' : <BsGithub className='cursor-pointer' onClick={()=>handleClick(contact.github)} />}
             {!contact.linkedin ? '' : <BsLinkedin className='cursor-pointer' onClick={()=>handleClick(contact.linkedin)} />}
-        </ul>
+        </div>
     )
 }
 

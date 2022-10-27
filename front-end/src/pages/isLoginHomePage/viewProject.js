@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { MdEdit, MdDelete } from 'react-icons/md';
 import ModalUpload from './modalUpload';
-
+import ModalImage from './modalImage';
 
 
 const ViewProject = () => {
@@ -12,6 +12,7 @@ const ViewProject = () => {
     const [images, setImages] = useState([]);
     const [editPhoto, setEditPhoto] = useState(false);
     const [modal, setModal] = useState(false);
+    const [modalImage, setModalImage] = useState(false);
     const [token, setToken] = useState('');
     
     const link = `http://127.0.0.1:5000/project/${id}`;
@@ -39,6 +40,10 @@ const ViewProject = () => {
         setModal(!modal)
     }
 
+    const clickModalImage = () => {
+        setModalImage(!modalImage);
+    }
+
     const deleteImage = async(id_image) => {
         try {
             await axios.delete(`http://127.0.0.1:5000/project/image/${id_image}`);
@@ -59,23 +64,25 @@ const ViewProject = () => {
 
     return (
         <div className='relative h-full'>
-            <div className={`${modal ? 'absolute cover bg-slate-900/[.6] z-[3] w-full min-h-[54.5rem] h-full' : ''}`}>
+            <div className={`${modal | modalImage ? 'absolute cover bg-slate-900/[.6] z-[3] w-full min-h-[54.5rem] h-full' : ''}`}>
             </div>
             <div className={`min-h-[45rem] pt-[10rem]`}>
                 <div className=''>
-                    <div className='absolute w-1/2 flex justify-center mt-10'>
-                    <ModalUpload block={modal} onClick={clickModal} id={id} refresh={getProject} />
+                    <div className='absolute w-full flex justify-center mt-10'>
+                        <ModalUpload block={modal} onClick={clickModal} id={id} refresh={getProject} />
+                        <ModalImage block={modalImage} onClick={clickModalImage} id={id} refresh={getProject} />
                     </div>
                     <div className='mx-[1rem] lg:mx-[20rem]'>
                         <div className='relative mb-0'>
                             <div className='flex justify-between'>
                                 <div className="flex items-end">
-                                    <div>
+                                    <div className='flex items-end'>
                                         <img
                                             src={`${project.image}`}
                                             alt="Front of men&#039;s Basic Tee in black"
                                             className="w-20"
                                         />
+                                        <MdEdit className='cursor-pointer hover:text-blue-500' onClick={()=>clickModalImage()}  />
                                     </div>
                                     <div className='mx-4'>{project.name}</div>
                                 </div>
@@ -87,7 +94,7 @@ const ViewProject = () => {
                         <div className='relative mt-6 border-t-2 border-slate-300'>
                             <div className='flex justify-between my-3 items-end'>
                                 <div className='font-bold'>Image Project</div>
-                                <div className={`cursor-pointer ${!token ? 'hidden' : ''}`} onClick={()=>setModal(!modal)}><MdEdit /></div>
+                                <div className={`cursor-pointer hover:text-blue-500 ${!token ? 'hidden' : ''}`} onClick={()=>setModal(!modal)}><MdEdit /></div>
                             </div>
                             <div className='flex justify-start flex-wrap mt-6 pb-10'>
                                 {images.map((image, index)=>(

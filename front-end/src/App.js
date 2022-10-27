@@ -12,6 +12,8 @@ import IsLoginHomePage from './pages/isLoginHomePage/isLoginHomePage';
 import Navbar from './components/layout/navbarContainer';
 import ViewProject from './pages/isLoginHomePage/viewProject';
 import ViewProjectOut from './pages/isLoginHomePage/viewProjectOut';
+import OurProject from './pages/creators/ourProject';
+import Contact from './pages/contact/contact';
 
 function App() {
   return (
@@ -55,9 +57,19 @@ function App() {
               <UserProfile />
             </>
           } />
+          <Route path="/message" element={
+            <>
+              <Contact />
+            </>
+          } />
           <Route exact path="/home_login" element={
             <>
               <IsLoginHomePage />
+            </>
+          } />
+          <Route exact path="/our_project/:id" element={
+            <>
+              <OurProject />
             </>
           } />
           <Route exact path="/view_project/:id" element={

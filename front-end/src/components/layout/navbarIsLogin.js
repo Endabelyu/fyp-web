@@ -4,7 +4,7 @@ import Button from './button';
 import Image from '../../assets/srcImg/srcImg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { IoHomeSharp } from 'react-icons/io5';
-import { CgProfile } from 'react-icons/cg';
+import { CgMail, CgProfile } from 'react-icons/cg';
 import axios from 'axios';
 
 const NavbarisLogin = (props) => {
@@ -72,6 +72,10 @@ const NavbarisLogin = (props) => {
               <NavLink className="flex gap-x-2" to="/userProfile" onClick={()=>{setToggle(!toggle)}}>
                 <CgProfile className="text-lg mt-[0.1rem]" />
                 <p className="font-light"> Profile</p>
+              </NavLink>
+              <NavLink className="flex gap-x-2" to="/message" onClick={()=>{setToggle(!toggle)}}>
+                <CgMail className="text-lg mt-[0.1rem]" />
+                <p className="font-light"> Message</p>
               </NavLink>
             </ul>
             <Button

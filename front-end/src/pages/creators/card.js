@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import Contact from './contact';
+import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
+
+  const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
   const [limitUser, setLimitUser] = useState('6');
@@ -59,12 +62,16 @@ const Card = (props) => {
     setPage(row);
   }
 
+  const visitProject = (id) => {
+    navigate(`/our_project/${id}`);
+  }
+
   return (
     <React.Fragment>
       <div className='pb-6 bg-white drop-shadow-xl'>
-        <div className="grid grid-cols-3 gap-6 content-start  p-10">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-6 content-start lg:p-10">
           {users.map((user, index)=>(
-          <div class="card flex flex-col w-80 md:w-3/4 lg:w-80 mx-auto rounded-lg bg-[#EAEAFA] px-6">
+          <div class="card flex flex-col w-80 md:w-3/4 lg:w-80 mx-auto rounded-lg bg-[#EAEAFA] px-6 my-4 lg:my-0 cursor-pointer" onClick={()=>visitProject(user.id)}>
               <div class="profileCreator flex py-4 gap-x-8">
               <img
                 src={user.image ? user.image : 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'}
@@ -76,7 +83,9 @@ const Card = (props) => {
                 <p class="card-quotes italic">{user.email}</p>
               </div>
             </div>
-            <Contact userId={user.id} />
+            <div className='w-full mb-3'>
+              <Contact userId={user.id} />
+            </div>
           </div>
           ))}
         </div>

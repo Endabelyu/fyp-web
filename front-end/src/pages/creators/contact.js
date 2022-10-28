@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import { BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsInstagram, BsTwitter, BsLinkedin } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 
 const Contact = (props) => {
@@ -24,11 +24,12 @@ const Contact = (props) => {
     }
     
     return (
-        <ul className="socmed flex justify-between p-4">
+        <div className="socmed flex justify-between w-full">
             {!contact.twitter ? '' : <BsTwitter className='cursor-pointer' onClick={()=>handleClick(contact.twitter)} />}
             {!contact.instagram ? '' : <BsInstagram className='cursor-pointer' onClick={()=>handleClick(contact.instagram)}/>}
             {!contact.github ? '' : <BsGithub className='cursor-pointer' onClick={()=>handleClick(contact.github)} />}
-        </ul>
+            {!contact.linkedin ? '' : <BsLinkedin className='cursor-pointer' onClick={()=>handleClick(contact.linkedin)} />}
+        </div>
     )
 }
 

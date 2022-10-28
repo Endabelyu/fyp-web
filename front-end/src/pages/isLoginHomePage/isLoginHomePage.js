@@ -19,8 +19,6 @@ const IsLoginHomePage = () => {
   const [pageProject, setPageProject] = useState(1);
   const [countPage, setCountPage] = useState();
 
-  const link = ``;
-
   const rows = [];
   for (var i = 1; i <= countPage; i++) {
     rows.push(i);
@@ -76,8 +74,8 @@ const IsLoginHomePage = () => {
     getProject();
   };
 
-  const handleLink = async (url) => {
-    window.open(`${url}`, '_blank');
+  const handleLink = async (id) => {
+    navigate("../view_project_out/"+id);
   };
 
   const axiosJwt = axios.create();
@@ -111,19 +109,19 @@ const IsLoginHomePage = () => {
 
   return (
     <React.Fragment>
-      <div className="bg-white min-h-screen">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 w-full text-right px-5">
+      <div className="bg-white min-h-[42rem]">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 mt-6">
+          {/* <div className="mt-6 w-full text-right px-5">
             <button className="text-blue-500 border-2 border-blue-500 bg-white hover:bg-blue-300 py-1 px-6 rounded-full ">
               Filter
             </button>
-          </div>
-          <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 min-h-[40rem]">
+          </div> */}
+          <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 min-h-[20rem]">
             {projects.map((project, index) => (
               <div className="group relative mx-4 ">
                 <div className="max-h-80 aspect-w-1 w-70 aspect-h-1 cursor-pointer overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-60">
                   <img
-                    onClick={() => handleLink(project.url)}
+                    onClick={() => handleLink(project.id)}
                     src={`${project.image}`}
                     alt="Front of men&#039;s Basic Tee in black"
                     className="h-auto w-[80%] ml-3 lg:ml-5 object-center lg:h-auto lg:w-[80%] my-6 mx-6"
@@ -153,33 +151,35 @@ const IsLoginHomePage = () => {
               </div>
             ))}
           </div>
-          <div className="w-full flex justify-center">
-            <div className="flex justify-between w-[20rem] mt-10  px-6 py-1 text-white">
-              <button
-                className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 "
-                onClick={() => handlePreview()}
-              >
-                Preview
-              </button>
-              {rows.map((row, index) => (
+          {!countPage ? '' :
+            <div className="w-full flex justify-center">
+              <div className="flex justify-between w-[20rem] mt-10  px-6 py-1 text-white">
                 <button
-                  key={index}
-                  className={`cursor-pointer hover:bg-blue-500 ${
-                    row == pageProject ? 'bg-blue-600' : 'bg-blue-300'
-                  } px-3`}
-                  onClick={() => handleClick(row)}
+                  className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 "
+                  onClick={() => handlePreview()}
                 >
-                  {row}
+                  Preview
                 </button>
-              ))}
-              <button
-                className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 min-w-[5rem]"
-                onClick={() => handleNext()}
-              >
-                Next
-              </button>
+                {rows.map((row, index) => (
+                  <button
+                    key={index}
+                    className={`cursor-pointer hover:bg-blue-500 ${
+                      row == pageProject ? 'bg-blue-600' : 'bg-blue-300'
+                    } px-3`}
+                    onClick={() => handleClick(row)}
+                  >
+                    {row}
+                  </button>
+                ))}
+                <button
+                  className="cursor-pointer bg-blue-400 hover:bg-blue-500 px-3 min-w-[5rem]"
+                  onClick={() => handleNext()}
+                >
+                  Next
+                </button>
+              </div>
             </div>
-          </div>
+          }
         </div>
       </div>
     </React.Fragment>

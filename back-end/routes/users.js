@@ -10,7 +10,7 @@ import {
   UpdatePhoto,
   UpdateUser,
 } from '../controllers/userControllers.js';
-import { submitMessage } from '../controllers/ContactUsController.js';
+import { getMessage, submitMessage } from '../controllers/ContactUsController.js';
 import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();
@@ -27,5 +27,6 @@ router.delete('/logout', Logout);
 router.get('/users_page/:limit&:page', getUsersPag);
 
 router.post('/submitMessage', submitMessage);
+router.get('/getMessage', getMessage);
 
 export default router;

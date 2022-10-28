@@ -13,3 +13,12 @@ export const submitMessage = async(req, res) => {
         console.log(error);
     }
 }
+
+export const getMessage = async(req, res) => {
+    try {
+        const messages = await ContactUs.findAll();
+        res.status(200).json(messages);
+    } catch (error) {
+        console.log(error);
+    }
+}

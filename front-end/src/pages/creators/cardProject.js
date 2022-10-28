@@ -5,21 +5,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MdDelete, MdRefresh } from 'react-icons/md';
 import axios from 'axios';
 
-const CardProjectProfile = (props) => {
+const CardProject = (props) => {
   const { id, url, title, name, image, visitLink, project } = props;
   const navigate = useNavigate();
-
-  const handleDelete = async() => {
-    await axios.delete(`http://localhost:5000/project/${id}`);
-    project();
-  }
 
   const handleLink = async(visitLink) => {
     window.open(`${visitLink}`, "_blank");
   }
 
   const viewProject = (id) => {
-    navigate("../view_project/"+id);
+    navigate("../view_project_out/"+id);
   }
 
   return (
@@ -31,7 +26,6 @@ const CardProjectProfile = (props) => {
             src={image}
             alt={title}
           />
-          <MdDelete onClick={handleDelete} className='ml-40 cursor-pointer'/>
         </div>
         
         <div className="userData px-6 ">
@@ -49,4 +43,4 @@ const CardProjectProfile = (props) => {
   );
 };
 
-export default CardProjectProfile;
+export default CardProject;
